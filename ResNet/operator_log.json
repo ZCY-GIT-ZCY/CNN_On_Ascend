@@ -1,0 +1,69 @@
+{
+  "ai_core_metrics": {
+    "total_time": 50.52885391444722,
+    "total_cycles": 61847.29878934625,
+    "vec_exe_time": 0.3496623613697832,
+    "vec_exe_ratio": 0.022682995728055554,
+    "mac_exe_time": 19.872116767289544,
+    "mac_exe_ratio": 0.48906790402679035,
+    "scalar_exe_time": 1.7768438124712942,
+    "scalar_exe_ratio": 0.05385353798476863,
+    "mte1_exe_time": 9.065897958411659,
+    "mte1_exe_ratio": 0.1674463369968715,
+    "mte2_exe_time": 44.85940459883298,
+    "mte2_exe_ratio": 0.8064740530751906,
+    "mte3_exe_time": 0.23947296277961275,
+    "mte3_exe_ratio": 0.019824383523357345,
+    "fixpipe_exe_time": 21.137103817007603,
+    "fixpipe_exe_ratio": 0.49095521988219937
+  },
+  "summary": {
+    "total_time_us": 50.52885391444722,
+    "total_cycles": 61847.29878934625,
+    "ai_core_util": {
+      "vector": 2.2682995728055553,
+      "cube_mac": 48.906790402679036,
+      "scalar": 5.385353798476863,
+      "memory_mte": 97.39203900720621,
+      "overall": 51.17508997548459
+    },
+    "bottleneck": "Memory"
+  },
+  "utilization": {
+    "Vector Unit": {
+      "time_ms": 0.3496623613697832,
+      "ratio": 2.2682995728055553,
+      "evaluation": "\u4f4e"
+    },
+    "Cube Unit (MAC)": {
+      "time_ms": 19.872116767289544,
+      "ratio": 48.906790402679036,
+      "evaluation": "\u4e2d"
+    },
+    "Scalar Unit": {
+      "time_ms": 1.7768438124712942,
+      "ratio": 5.385353798476863,
+      "evaluation": "\u4e2d"
+    },
+    "MTE1 (\u5b58\u50a8)": {
+      "time_ms": 9.065897958411659,
+      "ratio": 16.74463369968715,
+      "evaluation": "\u4e2d"
+    },
+    "MTE2 (\u5b58\u50a8)": {
+      "time_ms": 44.85940459883298,
+      "ratio": 80.64740530751907,
+      "evaluation": "\u9ad8"
+    },
+    "MTE3 (\u5b58\u50a8)": {
+      "time_ms": 0.23947296277961275,
+      "ratio": 1.9824383523357345,
+      "evaluation": "\u4f4e"
+    },
+    "FixPipe": {
+      "time_ms": 21.137103817007603,
+      "ratio": 49.095521988219936,
+      "evaluation": "\u4f4e"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "model": "MobileNetV3-Small",
+  "timestamp": "2026-05-28 22:29",
+  "end_to_end": {
+    "mean_latency_ms": 0.96,
+    "min_latency_ms": 0.93,
+    "max_latency_ms": 1.05,
+    "std_latency_ms": 0.02,
+    "fps": 1040
+  },
+  "ai_core_utilization": {
+    "cube_mac": 14.0,
+    "vector": 22.2,
+    "scalar": 9.1,
+    "mte1": 12.0,
+    "mte2": 44.3,
+    "mte3": 14.3,
+    "fixpipe": 33.3,
+    "memory_total": 70.9
+  }
+}
