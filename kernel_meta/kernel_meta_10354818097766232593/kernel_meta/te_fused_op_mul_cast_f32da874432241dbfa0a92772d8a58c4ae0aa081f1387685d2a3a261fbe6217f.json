@@ -1,0 +1,19 @@
+{
+    "KBHit":false,
+    "binFileName":"te_fused_op_mul_cast_f32da874432241dbfa0a92772d8a58c4ae0aa081f1387685d2a3a261fbe6217f",
+    "binFileSuffix":".o",
+    "blockDim":1,
+    "coreType":"VectorCore",
+    "deterministic":"ignore",
+    "kernelName":"te_fused_op_mul_cast_f32da874432241dbfa0a92772d8a58c4ae0aa081f1387685d2a3a261fbe6217f__kernel0",
+    "magic":"RT_DEV_BINARY_MAGIC_ELF_AIVEC",
+    "memoryStamping":[],
+    "opParaSize":0,
+    "parameters":[
+        null,
+        null,
+        null,
+        null
+    ],
+    "sha256":"92e9e7c2c621981688a347947df00ac36c7521490529d4734da9d6e70cce3423"
+}

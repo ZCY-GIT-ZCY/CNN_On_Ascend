@@ -1,0 +1,1648 @@
+{
+  "models": {
+    "mobilenet_v3_small": {
+      "architecture": "MobileNetV3-Small",
+      "total_conv_layers": 34,
+      "depthwise_conv_layers": 11,
+      "pointwise_conv_layers": 21,
+      "se_blocks": 9,
+      "residual_blocks": 6,
+      "fuse_candidates": {
+        "stem_conv_bn_act": 1,
+        "expand_conv_bn_act": 10,
+        "depthwise_conv_bn_act": 11,
+        "project_conv_bn": 11,
+        "se_scale": 9,
+        "project_add": 6,
+        "tail_conv_bn_act": 1
+      },
+      "blocks": [
+        {
+          "index": 0,
+          "type": "Conv2dNormActivation"
+        },
+        {
+          "index": 1,
+          "type": "InvertedResidual",
+          "use_res_connect": false,
+          "parts": [
+            {
+              "type": "Conv2dNormActivation",
+              "conv": {
+                "in_channels": 16,
+                "out_channels": 16,
+                "kernel_size": [
+                  3,
+                  3
+                ],
+                "stride": [
+                  2,
+                  2
+                ],
+                "groups": 16,
+                "depthwise": true,
+                "pointwise": false
+              },
+              "has_activation": true
+            },
+            {
+              "type": "SqueezeExcitation",
+              "fusable": [
+                "avgpool",
+                "fc1",
+                "relu",
+                "fc2",
+                "hardsigmoid",
+                "mul"
+              ]
+            },
+            {
+              "type": "Conv2dNormActivation",
+              "conv": {
+                "in_channels": 16,
+                "out_channels": 16,
+                "kernel_size": [
+                  1,
+                  1
+                ],
+                "stride": [
+                  1,
+                  1
+                ],
+                "groups": 1,
+                "depthwise": false,
+                "pointwise": true
+              },
+              "has_activation": false
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "type": "InvertedResidual",
+          "use_res_connect": false,
+          "parts": [
+            {
+              "type": "Conv2dNormActivation",
+              "conv": {
+                "in_channels": 16,
+                "out_channels": 72,
+                "kernel_size": [
+                  1,
+                  1
+                ],
+                "stride": [
+                  1,
+                  1
+                ],
+                "groups": 1,
+                "depthwise": false,
+                "pointwise": true
+              },
+              "has_activation": true
+            },
+            {
+              "type": "Conv2dNormActivation",
+              "conv": {
+                "in_channels": 72,
+                "out_channels": 72,
+                "kernel_size": [
+                  3,
+                  3
+                ],
+                "stride": [
+                  2,
+                  2
+                ],
+                "groups": 72,
+                "depthwise": true,
+                "pointwise": false
+              },
+              "has_activation": true
+            },
+            {
+              "type": "Conv2dNormActivation",
+              "conv": {
+                "in_channels": 72,
+                "out_channels": 24,
+                "kernel_size": [
+                  1,
+                  1
+                ],
+                "stride": [
+                  1,
+                  1
+                ],
+                "groups": 1,
+                "depthwise": false,
+                "pointwise": true
+              },
+              "has_activation": false
+            }
+          ]
+        },
+        {
+          "index": 3,
+          "type": "InvertedResidual",
+          "use_res_connect": true,
+          "parts": [
+            {
+              "type": "Conv2dNormActivation",
+              "conv": {
+                "in_channels": 24,
+                "out_channels": 88,
+                "kernel_size": [
+                  1,
+                  1
+                ],
+                "stride": [
+                  1,
+                  1
+                ],
+                "groups": 1,
+                "depthwise": false,
+                "pointwise": true
+              },
+              "has_activation": true
+            },
+            {
+              "type": "Conv2dNormActivation",
+              "conv": {
+                "in_channels": 88,
+                "out_channels": 88,
+                "kernel_size": [
+                  3,
+                  3
+                ],
+                "stride": [
+                  1,
+                  1
+                ],
+                "groups": 88,
+                "depthwise": true,
+                "pointwise": false
+              },
+              "has_activation": true
+            },
+            {
+              "type": "Conv2dNormActivation",
+              "conv": {
+                "in_channels": 88,
+                "out_channels": 24,
+                "kernel_size": [
+                  1,
+                  1
+                ],
+                "stride": [
+                  1,
+                  1
+                ],
+                "groups": 1,
+                "depthwise": false,
+                "pointwise": true
+              },
+              "has_activation": false
+            }
+          ]
+        },
+        {
+          "index": 4,
+          "type": "InvertedResidual",
+          "use_res_connect": false,
+          "parts": [
+            {
+              "type": "Conv2dNormActivation",
+              "conv": {
+                "in_channels": 24,
+                "out_channels": 96,
+                "kernel_size": [
+                  1,
+                  1
+                ],
+                "stride": [
+                  1,
+                  1
+                ],
+                "groups": 1,
+                "depthwise": false,
+                "pointwise": true
+              },
+              "has_activation": true
+            },
+            {
+              "type": "Conv2dNormActivation",
+              "conv": {
+                "in_channels": 96,
+                "out_channels": 96,
+                "kernel_size": [
+                  5,
+                  5
+                ],
+                "stride": [
+                  2,
+                  2
+                ],
+                "groups": 96,
+                "depthwise": true,
+                "pointwise": false
+              },
+              "has_activation": true
+            },
+            {
+              "type": "SqueezeExcitation",
+              "fusable": [
+                "avgpool",
+                "fc1",
+                "relu",
+                "fc2",
+                "hardsigmoid",
+                "mul"
+              ]
+            },
+            {
+              "type": "Conv2dNormActivation",
+              "conv": {
+                "in_channels": 96,
+                "out_channels": 40,
+                "kernel_size": [
+                  1,
+                  1
+                ],
+                "stride": [
+                  1,
+                  1
+                ],
+                "groups": 1,
+                "depthwise": false,
+                "pointwise": true
+              },
+              "has_activation": false
+            }
+          ]
+        },
+        {
+          "index": 5,
+          "type": "InvertedResidual",
+          "use_res_connect": true,
+          "parts": [
+            {
+              "type": "Conv2dNormActivation",
+              "conv": {
+                "in_channels": 40,
+                "out_channels": 240,
+                "kernel_size": [
+                  1,
+                  1
+                ],
+                "stride": [
+                  1,
+                  1
+                ],
+                "groups": 1,
+                "depthwise": false,
+                "pointwise": true
+              },
+              "has_activation": true
+            },
+            {
+              "type": "Conv2dNormActivation",
+              "conv": {
+                "in_channels": 240,
+                "out_channels": 240,
+                "kernel_size": [
+                  5,
+                  5
+                ],
+                "stride": [
+                  1,
+                  1
+                ],
+                "groups": 240,
+                "depthwise": true,
+                "pointwise": false
+              },
+              "has_activation": true
+            },
+            {
+              "type": "SqueezeExcitation",
+              "fusable": [
+                "avgpool",
+                "fc1",
+                "relu",
+                "fc2",
+                "hardsigmoid",
+                "mul"
+              ]
+            },
+            {
+              "type": "Conv2dNormActivation",
+              "conv": {
+                "in_channels": 240,
+                "out_channels": 40,
+                "kernel_size": [
+                  1,
+                  1
+                ],
+                "stride": [
+                  1,
+                  1
+                ],
+                "groups": 1,
+                "depthwise": false,
+                "pointwise": true
+              },
+              "has_activation": false
+            }
+          ]
+        },
+        {
+          "index": 6,
+          "type": "InvertedResidual",
+          "use_res_connect": true,
+          "parts": [
+            {
+              "type": "Conv2dNormActivation",
+              "conv": {
+                "in_channels": 40,
+                "out_channels": 240,
+                "kernel_size": [
+                  1,
+                  1
+                ],
+                "stride": [
+                  1,
+                  1
+                ],
+                "groups": 1,
+                "depthwise": false,
+                "pointwise": true
+              },
+              "has_activation": true
+            },
+            {
+              "type": "Conv2dNormActivation",
+              "conv": {
+                "in_channels": 240,
+                "out_channels": 240,
+                "kernel_size": [
+                  5,
+                  5
+                ],
+                "stride": [
+                  1,
+                  1
+                ],
+                "groups": 240,
+                "depthwise": true,
+                "pointwise": false
+              },
+              "has_activation": true
+            },
+            {
+              "type": "SqueezeExcitation",
+              "fusable": [
+                "avgpool",
+                "fc1",
+                "relu",
+                "fc2",
+                "hardsigmoid",
+                "mul"
+              ]
+            },
+            {
+              "type": "Conv2dNormActivation",
+              "conv": {
+                "in_channels": 240,
+                "out_channels": 40,
+                "kernel_size": [
+                  1,
+                  1
+                ],
+                "stride": [
+                  1,
+                  1
+                ],
+                "groups": 1,
+                "depthwise": false,
+                "pointwise": true
+              },
+              "has_activation": false
+            }
+          ]
+        },
+        {
+          "index": 7,
+          "type": "InvertedResidual",
+          "use_res_connect": false,
+          "parts": [
+            {
+              "type": "Conv2dNormActivation",
+              "conv": {
+                "in_channels": 40,
+                "out_channels": 120,
+                "kernel_size": [
+                  1,
+                  1
+                ],
+                "stride": [
+                  1,
+                  1
+                ],
+                "groups": 1,
+                "depthwise": false,
+                "pointwise": true
+              },
+              "has_activation": true
+            },
+            {
+              "type": "Conv2dNormActivation",
+              "conv": {
+                "in_channels": 120,
+                "out_channels": 120,
+                "kernel_size": [
+                  5,
+                  5
+                ],
+                "stride": [
+                  1,
+                  1
+                ],
+                "groups": 120,
+                "depthwise": true,
+                "pointwise": false
+              },
+              "has_activation": true
+            },
+            {
+              "type": "SqueezeExcitation",
+              "fusable": [
+                "avgpool",
+                "fc1",
+                "relu",
+                "fc2",
+                "hardsigmoid",
+                "mul"
+              ]
+            },
+            {
+              "type": "Conv2dNormActivation",
+              "conv": {
+                "in_channels": 120,
+                "out_channels": 48,
+                "kernel_size": [
+                  1,
+                  1
+                ],
+                "stride": [
+                  1,
+                  1
+                ],
+                "groups": 1,
+                "depthwise": false,
+                "pointwise": true
+              },
+              "has_activation": false
+            }
+          ]
+        },
+        {
+          "index": 8,
+          "type": "InvertedResidual",
+          "use_res_connect": true,
+          "parts": [
+            {
+              "type": "Conv2dNormActivation",
+              "conv": {
+                "in_channels": 48,
+                "out_channels": 144,
+                "kernel_size": [
+                  1,
+                  1
+                ],
+                "stride": [
+                  1,
+                  1
+                ],
+                "groups": 1,
+                "depthwise": false,
+                "pointwise": true
+              },
+              "has_activation": true
+            },
+            {
+              "type": "Conv2dNormActivation",
+              "conv": {
+                "in_channels": 144,
+                "out_channels": 144,
+                "kernel_size": [
+                  5,
+                  5
+                ],
+                "stride": [
+                  1,
+                  1
+                ],
+                "groups": 144,
+                "depthwise": true,
+                "pointwise": false
+              },
+              "has_activation": true
+            },
+            {
+              "type": "SqueezeExcitation",
+              "fusable": [
+                "avgpool",
+                "fc1",
+                "relu",
+                "fc2",
+                "hardsigmoid",
+                "mul"
+              ]
+            },
+            {
+              "type": "Conv2dNormActivation",
+              "conv": {
+                "in_channels": 144,
+                "out_channels": 48,
+                "kernel_size": [
+                  1,
+                  1
+                ],
+                "stride": [
+                  1,
+                  1
+                ],
+                "groups": 1,
+                "depthwise": false,
+                "pointwise": true
+              },
+              "has_activation": false
+            }
+          ]
+        },
+        {
+          "index": 9,
+          "type": "InvertedResidual",
+          "use_res_connect": false,
+          "parts": [
+            {
+              "type": "Conv2dNormActivation",
+              "conv": {
+                "in_channels": 48,
+                "out_channels": 288,
+                "kernel_size": [
+                  1,
+                  1
+                ],
+                "stride": [
+                  1,
+                  1
+                ],
+                "groups": 1,
+                "depthwise": false,
+                "pointwise": true
+              },
+              "has_activation": true
+            },
+            {
+              "type": "Conv2dNormActivation",
+              "conv": {
+                "in_channels": 288,
+                "out_channels": 288,
+                "kernel_size": [
+                  5,
+                  5
+                ],
+                "stride": [
+                  2,
+                  2
+                ],
+                "groups": 288,
+                "depthwise": true,
+                "pointwise": false
+              },
+              "has_activation": true
+            },
+            {
+              "type": "SqueezeExcitation",
+              "fusable": [
+                "avgpool",
+                "fc1",
+                "relu",
+                "fc2",
+                "hardsigmoid",
+                "mul"
+              ]
+            },
+            {
+              "type": "Conv2dNormActivation",
+              "conv": {
+                "in_channels": 288,
+                "out_channels": 96,
+                "kernel_size": [
+                  1,
+                  1
+                ],
+                "stride": [
+                  1,
+                  1
+                ],
+                "groups": 1,
+                "depthwise": false,
+                "pointwise": true
+              },
+              "has_activation": false
+            }
+          ]
+        },
+        {
+          "index": 10,
+          "type": "InvertedResidual",
+          "use_res_connect": true,
+          "parts": [
+            {
+              "type": "Conv2dNormActivation",
+              "conv": {
+                "in_channels": 96,
+                "out_channels": 576,
+                "kernel_size": [
+                  1,
+                  1
+                ],
+                "stride": [
+                  1,
+                  1
+                ],
+                "groups": 1,
+                "depthwise": false,
+                "pointwise": true
+              },
+              "has_activation": true
+            },
+            {
+              "type": "Conv2dNormActivation",
+              "conv": {
+                "in_channels": 576,
+                "out_channels": 576,
+                "kernel_size": [
+                  5,
+                  5
+                ],
+                "stride": [
+                  1,
+                  1
+                ],
+                "groups": 576,
+                "depthwise": true,
+                "pointwise": false
+              },
+              "has_activation": true
+            },
+            {
+              "type": "SqueezeExcitation",
+              "fusable": [
+                "avgpool",
+                "fc1",
+                "relu",
+                "fc2",
+                "hardsigmoid",
+                "mul"
+              ]
+            },
+            {
+              "type": "Conv2dNormActivation",
+              "conv": {
+                "in_channels": 576,
+                "out_channels": 96,
+                "kernel_size": [
+                  1,
+                  1
+                ],
+                "stride": [
+                  1,
+                  1
+                ],
+                "groups": 1,
+                "depthwise": false,
+                "pointwise": true
+              },
+              "has_activation": false
+            }
+          ]
+        },
+        {
+          "index": 11,
+          "type": "InvertedResidual",
+          "use_res_connect": true,
+          "parts": [
+            {
+              "type": "Conv2dNormActivation",
+              "conv": {
+                "in_channels": 96,
+                "out_channels": 576,
+                "kernel_size": [
+                  1,
+                  1
+                ],
+                "stride": [
+                  1,
+                  1
+                ],
+                "groups": 1,
+                "depthwise": false,
+                "pointwise": true
+              },
+              "has_activation": true
+            },
+            {
+              "type": "Conv2dNormActivation",
+              "conv": {
+                "in_channels": 576,
+                "out_channels": 576,
+                "kernel_size": [
+                  5,
+                  5
+                ],
+                "stride": [
+                  1,
+                  1
+                ],
+                "groups": 576,
+                "depthwise": true,
+                "pointwise": false
+              },
+              "has_activation": true
+            },
+            {
+              "type": "SqueezeExcitation",
+              "fusable": [
+                "avgpool",
+                "fc1",
+                "relu",
+                "fc2",
+                "hardsigmoid",
+                "mul"
+              ]
+            },
+            {
+              "type": "Conv2dNormActivation",
+              "conv": {
+                "in_channels": 576,
+                "out_channels": 96,
+                "kernel_size": [
+                  1,
+                  1
+                ],
+                "stride": [
+                  1,
+                  1
+                ],
+                "groups": 1,
+                "depthwise": false,
+                "pointwise": true
+              },
+              "has_activation": false
+            }
+          ]
+        },
+        {
+          "index": 12,
+          "type": "Conv2dNormActivation"
+        }
+      ]
+    },
+    "resnet50": {
+      "architecture": "ResNet50",
+      "stem_conv_layers": 1,
+      "bottleneck_blocks": 16,
+      "total_conv_layers": 53,
+      "standard_3x3_conv_layers": 16,
+      "pointwise_conv_layers": 36,
+      "residual_downsample_blocks": 4,
+      "fuse_candidates": {
+        "stem_conv_bn_relu": 1,
+        "inner_conv_bn_relu": 32,
+        "tail_conv_bn_add_relu": 16,
+        "downsample_conv_bn": 4
+      },
+      "bottlenecks": [
+        {
+          "stage": "layer1",
+          "index": 0,
+          "conv1": {
+            "in_channels": 64,
+            "out_channels": 64,
+            "kernel_size": [
+              1,
+              1
+            ],
+            "stride": [
+              1,
+              1
+            ],
+            "groups": 1,
+            "depthwise": false,
+            "pointwise": true
+          },
+          "conv2": {
+            "in_channels": 64,
+            "out_channels": 64,
+            "kernel_size": [
+              3,
+              3
+            ],
+            "stride": [
+              1,
+              1
+            ],
+            "groups": 1,
+            "depthwise": false,
+            "pointwise": false
+          },
+          "conv3": {
+            "in_channels": 64,
+            "out_channels": 256,
+            "kernel_size": [
+              1,
+              1
+            ],
+            "stride": [
+              1,
+              1
+            ],
+            "groups": 1,
+            "depthwise": false,
+            "pointwise": true
+          },
+          "has_downsample": true
+        },
+        {
+          "stage": "layer1",
+          "index": 1,
+          "conv1": {
+            "in_channels": 256,
+            "out_channels": 64,
+            "kernel_size": [
+              1,
+              1
+            ],
+            "stride": [
+              1,
+              1
+            ],
+            "groups": 1,
+            "depthwise": false,
+            "pointwise": true
+          },
+          "conv2": {
+            "in_channels": 64,
+            "out_channels": 64,
+            "kernel_size": [
+              3,
+              3
+            ],
+            "stride": [
+              1,
+              1
+            ],
+            "groups": 1,
+            "depthwise": false,
+            "pointwise": false
+          },
+          "conv3": {
+            "in_channels": 64,
+            "out_channels": 256,
+            "kernel_size": [
+              1,
+              1
+            ],
+            "stride": [
+              1,
+              1
+            ],
+            "groups": 1,
+            "depthwise": false,
+            "pointwise": true
+          },
+          "has_downsample": false
+        },
+        {
+          "stage": "layer1",
+          "index": 2,
+          "conv1": {
+            "in_channels": 256,
+            "out_channels": 64,
+            "kernel_size": [
+              1,
+              1
+            ],
+            "stride": [
+              1,
+              1
+            ],
+            "groups": 1,
+            "depthwise": false,
+            "pointwise": true
+          },
+          "conv2": {
+            "in_channels": 64,
+            "out_channels": 64,
+            "kernel_size": [
+              3,
+              3
+            ],
+            "stride": [
+              1,
+              1
+            ],
+            "groups": 1,
+            "depthwise": false,
+            "pointwise": false
+          },
+          "conv3": {
+            "in_channels": 64,
+            "out_channels": 256,
+            "kernel_size": [
+              1,
+              1
+            ],
+            "stride": [
+              1,
+              1
+            ],
+            "groups": 1,
+            "depthwise": false,
+            "pointwise": true
+          },
+          "has_downsample": false
+        },
+        {
+          "stage": "layer2",
+          "index": 0,
+          "conv1": {
+            "in_channels": 256,
+            "out_channels": 128,
+            "kernel_size": [
+              1,
+              1
+            ],
+            "stride": [
+              1,
+              1
+            ],
+            "groups": 1,
+            "depthwise": false,
+            "pointwise": true
+          },
+          "conv2": {
+            "in_channels": 128,
+            "out_channels": 128,
+            "kernel_size": [
+              3,
+              3
+            ],
+            "stride": [
+              2,
+              2
+            ],
+            "groups": 1,
+            "depthwise": false,
+            "pointwise": false
+          },
+          "conv3": {
+            "in_channels": 128,
+            "out_channels": 512,
+            "kernel_size": [
+              1,
+              1
+            ],
+            "stride": [
+              1,
+              1
+            ],
+            "groups": 1,
+            "depthwise": false,
+            "pointwise": true
+          },
+          "has_downsample": true
+        },
+        {
+          "stage": "layer2",
+          "index": 1,
+          "conv1": {
+            "in_channels": 512,
+            "out_channels": 128,
+            "kernel_size": [
+              1,
+              1
+            ],
+            "stride": [
+              1,
+              1
+            ],
+            "groups": 1,
+            "depthwise": false,
+            "pointwise": true
+          },
+          "conv2": {
+            "in_channels": 128,
+            "out_channels": 128,
+            "kernel_size": [
+              3,
+              3
+            ],
+            "stride": [
+              1,
+              1
+            ],
+            "groups": 1,
+            "depthwise": false,
+            "pointwise": false
+          },
+          "conv3": {
+            "in_channels": 128,
+            "out_channels": 512,
+            "kernel_size": [
+              1,
+              1
+            ],
+            "stride": [
+              1,
+              1
+            ],
+            "groups": 1,
+            "depthwise": false,
+            "pointwise": true
+          },
+          "has_downsample": false
+        },
+        {
+          "stage": "layer2",
+          "index": 2,
+          "conv1": {
+            "in_channels": 512,
+            "out_channels": 128,
+            "kernel_size": [
+              1,
+              1
+            ],
+            "stride": [
+              1,
+              1
+            ],
+            "groups": 1,
+            "depthwise": false,
+            "pointwise": true
+          },
+          "conv2": {
+            "in_channels": 128,
+            "out_channels": 128,
+            "kernel_size": [
+              3,
+              3
+            ],
+            "stride": [
+              1,
+              1
+            ],
+            "groups": 1,
+            "depthwise": false,
+            "pointwise": false
+          },
+          "conv3": {
+            "in_channels": 128,
+            "out_channels": 512,
+            "kernel_size": [
+              1,
+              1
+            ],
+            "stride": [
+              1,
+              1
+            ],
+            "groups": 1,
+            "depthwise": false,
+            "pointwise": true
+          },
+          "has_downsample": false
+        },
+        {
+          "stage": "layer2",
+          "index": 3,
+          "conv1": {
+            "in_channels": 512,
+            "out_channels": 128,
+            "kernel_size": [
+              1,
+              1
+            ],
+            "stride": [
+              1,
+              1
+            ],
+            "groups": 1,
+            "depthwise": false,
+            "pointwise": true
+          },
+          "conv2": {
+            "in_channels": 128,
+            "out_channels": 128,
+            "kernel_size": [
+              3,
+              3
+            ],
+            "stride": [
+              1,
+              1
+            ],
+            "groups": 1,
+            "depthwise": false,
+            "pointwise": false
+          },
+          "conv3": {
+            "in_channels": 128,
+            "out_channels": 512,
+            "kernel_size": [
+              1,
+              1
+            ],
+            "stride": [
+              1,
+              1
+            ],
+            "groups": 1,
+            "depthwise": false,
+            "pointwise": true
+          },
+          "has_downsample": false
+        },
+        {
+          "stage": "layer3",
+          "index": 0,
+          "conv1": {
+            "in_channels": 512,
+            "out_channels": 256,
+            "kernel_size": [
+              1,
+              1
+            ],
+            "stride": [
+              1,
+              1
+            ],
+            "groups": 1,
+            "depthwise": false,
+            "pointwise": true
+          },
+          "conv2": {
+            "in_channels": 256,
+            "out_channels": 256,
+            "kernel_size": [
+              3,
+              3
+            ],
+            "stride": [
+              2,
+              2
+            ],
+            "groups": 1,
+            "depthwise": false,
+            "pointwise": false
+          },
+          "conv3": {
+            "in_channels": 256,
+            "out_channels": 1024,
+            "kernel_size": [
+              1,
+              1
+            ],
+            "stride": [
+              1,
+              1
+            ],
+            "groups": 1,
+            "depthwise": false,
+            "pointwise": true
+          },
+          "has_downsample": true
+        },
+        {
+          "stage": "layer3",
+          "index": 1,
+          "conv1": {
+            "in_channels": 1024,
+            "out_channels": 256,
+            "kernel_size": [
+              1,
+              1
+            ],
+            "stride": [
+              1,
+              1
+            ],
+            "groups": 1,
+            "depthwise": false,
+            "pointwise": true
+          },
+          "conv2": {
+            "in_channels": 256,
+            "out_channels": 256,
+            "kernel_size": [
+              3,
+              3
+            ],
+            "stride": [
+              1,
+              1
+            ],
+            "groups": 1,
+            "depthwise": false,
+            "pointwise": false
+          },
+          "conv3": {
+            "in_channels": 256,
+            "out_channels": 1024,
+            "kernel_size": [
+              1,
+              1
+            ],
+            "stride": [
+              1,
+              1
+            ],
+            "groups": 1,
+            "depthwise": false,
+            "pointwise": true
+          },
+          "has_downsample": false
+        },
+        {
+          "stage": "layer3",
+          "index": 2,
+          "conv1": {
+            "in_channels": 1024,
+            "out_channels": 256,
+            "kernel_size": [
+              1,
+              1
+            ],
+            "stride": [
+              1,
+              1
+            ],
+            "groups": 1,
+            "depthwise": false,
+            "pointwise": true
+          },
+          "conv2": {
+            "in_channels": 256,
+            "out_channels": 256,
+            "kernel_size": [
+              3,
+              3
+            ],
+            "stride": [
+              1,
+              1
+            ],
+            "groups": 1,
+            "depthwise": false,
+            "pointwise": false
+          },
+          "conv3": {
+            "in_channels": 256,
+            "out_channels": 1024,
+            "kernel_size": [
+              1,
+              1
+            ],
+            "stride": [
+              1,
+              1
+            ],
+            "groups": 1,
+            "depthwise": false,
+            "pointwise": true
+          },
+          "has_downsample": false
+        },
+        {
+          "stage": "layer3",
+          "index": 3,
+          "conv1": {
+            "in_channels": 1024,
+            "out_channels": 256,
+            "kernel_size": [
+              1,
+              1
+            ],
+            "stride": [
+              1,
+              1
+            ],
+            "groups": 1,
+            "depthwise": false,
+            "pointwise": true
+          },
+          "conv2": {
+            "in_channels": 256,
+            "out_channels": 256,
+            "kernel_size": [
+              3,
+              3
+            ],
+            "stride": [
+              1,
+              1
+            ],
+            "groups": 1,
+            "depthwise": false,
+            "pointwise": false
+          },
+          "conv3": {
+            "in_channels": 256,
+            "out_channels": 1024,
+            "kernel_size": [
+              1,
+              1
+            ],
+            "stride": [
+              1,
+              1
+            ],
+            "groups": 1,
+            "depthwise": false,
+            "pointwise": true
+          },
+          "has_downsample": false
+        },
+        {
+          "stage": "layer3",
+          "index": 4,
+          "conv1": {
+            "in_channels": 1024,
+            "out_channels": 256,
+            "kernel_size": [
+              1,
+              1
+            ],
+            "stride": [
+              1,
+              1
+            ],
+            "groups": 1,
+            "depthwise": false,
+            "pointwise": true
+          },
+          "conv2": {
+            "in_channels": 256,
+            "out_channels": 256,
+            "kernel_size": [
+              3,
+              3
+            ],
+            "stride": [
+              1,
+              1
+            ],
+            "groups": 1,
+            "depthwise": false,
+            "pointwise": false
+          },
+          "conv3": {
+            "in_channels": 256,
+            "out_channels": 1024,
+            "kernel_size": [
+              1,
+              1
+            ],
+            "stride": [
+              1,
+              1
+            ],
+            "groups": 1,
+            "depthwise": false,
+            "pointwise": true
+          },
+          "has_downsample": false
+        },
+        {
+          "stage": "layer3",
+          "index": 5,
+          "conv1": {
+            "in_channels": 1024,
+            "out_channels": 256,
+            "kernel_size": [
+              1,
+              1
+            ],
+            "stride": [
+              1,
+              1
+            ],
+            "groups": 1,
+            "depthwise": false,
+            "pointwise": true
+          },
+          "conv2": {
+            "in_channels": 256,
+            "out_channels": 256,
+            "kernel_size": [
+              3,
+              3
+            ],
+            "stride": [
+              1,
+              1
+            ],
+            "groups": 1,
+            "depthwise": false,
+            "pointwise": false
+          },
+          "conv3": {
+            "in_channels": 256,
+            "out_channels": 1024,
+            "kernel_size": [
+              1,
+              1
+            ],
+            "stride": [
+              1,
+              1
+            ],
+            "groups": 1,
+            "depthwise": false,
+            "pointwise": true
+          },
+          "has_downsample": false
+        },
+        {
+          "stage": "layer4",
+          "index": 0,
+          "conv1": {
+            "in_channels": 1024,
+            "out_channels": 512,
+            "kernel_size": [
+              1,
+              1
+            ],
+            "stride": [
+              1,
+              1
+            ],
+            "groups": 1,
+            "depthwise": false,
+            "pointwise": true
+          },
+          "conv2": {
+            "in_channels": 512,
+            "out_channels": 512,
+            "kernel_size": [
+              3,
+              3
+            ],
+            "stride": [
+              2,
+              2
+            ],
+            "groups": 1,
+            "depthwise": false,
+            "pointwise": false
+          },
+          "conv3": {
+            "in_channels": 512,
+            "out_channels": 2048,
+            "kernel_size": [
+              1,
+              1
+            ],
+            "stride": [
+              1,
+              1
+            ],
+            "groups": 1,
+            "depthwise": false,
+            "pointwise": true
+          },
+          "has_downsample": true
+        },
+        {
+          "stage": "layer4",
+          "index": 1,
+          "conv1": {
+            "in_channels": 2048,
+            "out_channels": 512,
+            "kernel_size": [
+              1,
+              1
+            ],
+            "stride": [
+              1,
+              1
+            ],
+            "groups": 1,
+            "depthwise": false,
+            "pointwise": true
+          },
+          "conv2": {
+            "in_channels": 512,
+            "out_channels": 512,
+            "kernel_size": [
+              3,
+              3
+            ],
+            "stride": [
+              1,
+              1
+            ],
+            "groups": 1,
+            "depthwise": false,
+            "pointwise": false
+          },
+          "conv3": {
+            "in_channels": 512,
+            "out_channels": 2048,
+            "kernel_size": [
+              1,
+              1
+            ],
+            "stride": [
+              1,
+              1
+            ],
+            "groups": 1,
+            "depthwise": false,
+            "pointwise": true
+          },
+          "has_downsample": false
+        },
+        {
+          "stage": "layer4",
+          "index": 2,
+          "conv1": {
+            "in_channels": 2048,
+            "out_channels": 512,
+            "kernel_size": [
+              1,
+              1
+            ],
+            "stride": [
+              1,
+              1
+            ],
+            "groups": 1,
+            "depthwise": false,
+            "pointwise": true
+          },
+          "conv2": {
+            "in_channels": 512,
+            "out_channels": 512,
+            "kernel_size": [
+              3,
+              3
+            ],
+            "stride": [
+              1,
+              1
+            ],
+            "groups": 1,
+            "depthwise": false,
+            "pointwise": false
+          },
+          "conv3": {
+            "in_channels": 512,
+            "out_channels": 2048,
+            "kernel_size": [
+              1,
+              1
+            ],
+            "stride": [
+              1,
+              1
+            ],
+            "groups": 1,
+            "depthwise": false,
+            "pointwise": true
+          },
+          "has_downsample": false
+        }
+      ]
+    }
+  },
+  "fusion_patterns": {
+    "standard_conv": [
+      "Conv + BN (静态折叠，推理期权重吸收)",
+      "Conv + BN + ReLU",
+      "Conv + BN + Add + ReLU（残差尾部融合）",
+      "Downsample Conv + BN 与主分支同步融合",
+      "布局转换与后续算子联合调度，减少 FixPipe"
+    ],
+    "depthwise_separable": [
+      "PW(expand) + BN + Activation",
+      "DWConv + BN + Activation",
+      "SE: AvgPool + FC1 + ReLU + FC2 + HSigmoid + Scale",
+      "PW(project) + Add",
+      "连续 DW/PW block 的 cache / tile 复用"
+    ]
+  }
+}

@@ -1,0 +1,943 @@
+{
+  "config": {
+    "rounds": 3,
+    "iterations": 220,
+    "warmup_first": 30,
+    "warmup_full": 20,
+    "cooldown_between_rounds": 2.0,
+    "cooldown_between_models": 5.0,
+    "schedule": [
+      "mobilenet_baseline_run1",
+      "mobilenet_fp16_run1",
+      "mobilenet_baseline_run2",
+      "mobilenet_fp16_run2",
+      "resnet_baseline_run1",
+      "resnet_fp16_run1",
+      "resnet_baseline_run2",
+      "resnet_fp16_run2"
+    ],
+    "design": "ABAB"
+  },
+  "ordered_results": [
+    {
+      "rounds": 3,
+      "iterations_per_round": 220,
+      "warmup_first": 30,
+      "warmup_full": 20,
+      "overall_mean_ms": 0.9582631484673501,
+      "overall_std_ms": 0.005132961639040966,
+      "round_means": [
+        0.9514751136273183,
+        0.9594294136480709,
+        0.9638849181266612
+      ],
+      "per_round": [
+        {
+          "mean_ms": 0.9514751136273183,
+          "min_ms": 0.9284690004278673,
+          "max_ms": 1.0793260007631034,
+          "std_ms": 0.015636433194590647,
+          "p50_ms": 0.9501675003775745,
+          "p90_ms": 0.9664955992775504,
+          "p95_ms": 0.9738155502418522,
+          "p99_ms": 1.0024662298201292,
+          "fps": 1050.9996380122752,
+          "sample_count": 220
+        },
+        {
+          "mean_ms": 0.9594294136480709,
+          "min_ms": 0.9275110005546594,
+          "max_ms": 1.0404290005681105,
+          "std_ms": 0.019125174936023854,
+          "p50_ms": 0.9573035003995756,
+          "p90_ms": 0.9843031009950209,
+          "p95_ms": 0.9990530497816508,
+          "p99_ms": 1.0182052799063968,
+          "fps": 1042.2861606855122,
+          "sample_count": 220
+        },
+        {
+          "mean_ms": 0.9638849181266612,
+          "min_ms": 0.9313650007243268,
+          "max_ms": 1.0441369995533023,
+          "std_ms": 0.018121892399095473,
+          "p50_ms": 0.9607719994164654,
+          "p90_ms": 0.9856663000391563,
+          "p95_ms": 0.9956509503354027,
+          "p99_ms": 1.0176352602502448,
+          "fps": 1037.4682508193296,
+          "sample_count": 220
+        }
+      ],
+      "model_key": "mobilenet_v3_small",
+      "model_path": "/home/HwHiAiUser/Desktop/CNN/Optimization/models/mobilenet_v3_small_baseline.om",
+      "label": "mobilenet_baseline_run1",
+      "compile_artifact": "/home/HwHiAiUser/Desktop/CNN/Optimization/models/mobilenet_v3_small_baseline.om"
+    },
+    {
+      "rounds": 3,
+      "iterations_per_round": 220,
+      "warmup_first": 30,
+      "warmup_full": 20,
+      "overall_mean_ms": 0.9625559454103826,
+      "overall_std_ms": 0.00549574642196474,
+      "round_means": [
+        0.9630082999716582,
+        0.9556102908721765,
+        0.9690492453873131
+      ],
+      "per_round": [
+        {
+          "mean_ms": 0.9630082999716582,
+          "min_ms": 0.9276780001528095,
+          "max_ms": 1.0185329992964398,
+          "std_ms": 0.01649980034815332,
+          "p50_ms": 0.9608655000192812,
+          "p90_ms": 0.9832991994699114,
+          "p95_ms": 0.9936774503330525,
+          "p99_ms": 1.0138995408487972,
+          "fps": 1038.4126492257965,
+          "sample_count": 220
+        },
+        {
+          "mean_ms": 0.9556102908721765,
+          "min_ms": 0.9288649998779874,
+          "max_ms": 1.0199909993389156,
+          "std_ms": 0.014957472898292894,
+          "p50_ms": 0.9537095002087881,
+          "p90_ms": 0.9740970992424991,
+          "p95_ms": 0.9814852005547436,
+          "p99_ms": 0.9980628089942911,
+          "fps": 1046.451685955903,
+          "sample_count": 220
+        },
+        {
+          "mean_ms": 0.9690492453873131,
+          "min_ms": 0.9307399996032473,
+          "max_ms": 1.0215120000793831,
+          "std_ms": 0.01729983305654866,
+          "p50_ms": 0.9675324999989243,
+          "p90_ms": 0.9932269993441878,
+          "p95_ms": 0.9998416488997464,
+          "p99_ms": 1.0117277106292022,
+          "fps": 1031.9393000510686,
+          "sample_count": 220
+        }
+      ],
+      "model_key": "mobilenet_v3_small",
+      "model_path": "/home/HwHiAiUser/Desktop/CNN/Optimization/models/mobilenet_v3_small_fp16.om",
+      "label": "mobilenet_fp16_run1",
+      "compile_artifact": "/home/HwHiAiUser/Desktop/CNN/Optimization/models/mobilenet_v3_small_fp16.om"
+    },
+    {
+      "rounds": 3,
+      "iterations_per_round": 220,
+      "warmup_first": 30,
+      "warmup_full": 20,
+      "overall_mean_ms": 0.9643344833586359,
+      "overall_std_ms": 0.006441456918814604,
+      "round_means": [
+        0.9730659227484879,
+        0.9577193136217168,
+        0.9622182137057032
+      ],
+      "per_round": [
+        {
+          "mean_ms": 0.9730659227484879,
+          "min_ms": 0.9338239997305209,
+          "max_ms": 1.143473000411177,
+          "std_ms": 0.02388421538551192,
+          "p50_ms": 0.970729999608011,
+          "p90_ms": 1.0012521996031865,
+          "p95_ms": 1.0179309500017553,
+          "p99_ms": 1.0406347997923149,
+          "fps": 1027.6796017842605,
+          "sample_count": 220
+        },
+        {
+          "mean_ms": 0.9577193136217168,
+          "min_ms": 0.9299490011471789,
+          "max_ms": 1.0490759996173438,
+          "std_ms": 0.016948962247200435,
+          "p50_ms": 0.954875999923388,
+          "p90_ms": 0.9766342986040399,
+          "p95_ms": 0.9868247996564605,
+          "p99_ms": 1.0168760199121607,
+          "fps": 1044.1472629578643,
+          "sample_count": 220
+        },
+        {
+          "mean_ms": 0.9622182137057032,
+          "min_ms": 0.9263870015274733,
+          "max_ms": 1.0512840017327107,
+          "std_ms": 0.021755432967522585,
+          "p50_ms": 0.9586679998392356,
+          "p90_ms": 0.9915203998389188,
+          "p95_ms": 1.0057841997877404,
+          "p99_ms": 1.0308822798833717,
+          "fps": 1039.2652994467765,
+          "sample_count": 220
+        }
+      ],
+      "model_key": "mobilenet_v3_small",
+      "model_path": "/home/HwHiAiUser/Desktop/CNN/Optimization/models/mobilenet_v3_small_baseline.om",
+      "label": "mobilenet_baseline_run2",
+      "compile_artifact": "/home/HwHiAiUser/Desktop/CNN/Optimization/models/mobilenet_v3_small_baseline.om"
+    },
+    {
+      "rounds": 3,
+      "iterations_per_round": 220,
+      "warmup_first": 30,
+      "warmup_full": 20,
+      "overall_mean_ms": 0.9608725954229048,
+      "overall_std_ms": 0.0020095926513928677,
+      "round_means": [
+        0.9610822181209435,
+        0.9632223181804214,
+        0.9583132499673493
+      ],
+      "per_round": [
+        {
+          "mean_ms": 0.9610822181209435,
+          "min_ms": 0.9367820002808003,
+          "max_ms": 1.0590130004857201,
+          "std_ms": 0.015767308585047136,
+          "p50_ms": 0.9589389992470387,
+          "p90_ms": 0.9779242001968669,
+          "p95_ms": 0.9878226511318644,
+          "p99_ms": 1.0188939892577764,
+          "fps": 1040.4937071410461,
+          "sample_count": 220
+        },
+        {
+          "mean_ms": 0.9632223181804214,
+          "min_ms": 0.9336990005976986,
+          "max_ms": 1.1131379997095792,
+          "std_ms": 0.019562980635905274,
+          "p50_ms": 0.9605115001249942,
+          "p90_ms": 0.98354340007063,
+          "p95_ms": 0.9893409997857816,
+          "p99_ms": 1.0302507397500449,
+          "fps": 1038.1819244897208,
+          "sample_count": 220
+        },
+        {
+          "mean_ms": 0.9583132499673493,
+          "min_ms": 0.9289280005759792,
+          "max_ms": 1.0093870005221106,
+          "std_ms": 0.01399878809695652,
+          "p50_ms": 0.9577094997439417,
+          "p90_ms": 0.9764012997038662,
+          "p95_ms": 0.9836511002504267,
+          "p99_ms": 0.9904739603189228,
+          "fps": 1043.5001290382565,
+          "sample_count": 220
+        }
+      ],
+      "model_key": "mobilenet_v3_small",
+      "model_path": "/home/HwHiAiUser/Desktop/CNN/Optimization/models/mobilenet_v3_small_fp16.om",
+      "label": "mobilenet_fp16_run2",
+      "compile_artifact": "/home/HwHiAiUser/Desktop/CNN/Optimization/models/mobilenet_v3_small_fp16.om"
+    },
+    {
+      "rounds": 3,
+      "iterations_per_round": 220,
+      "warmup_first": 30,
+      "warmup_full": 20,
+      "overall_mean_ms": 3.3937358242837945,
+      "overall_std_ms": 0.016328703300210537,
+      "round_means": [
+        3.371745177322406,
+        3.4108342954658095,
+        3.398628000063168
+      ],
+      "per_round": [
+        {
+          "mean_ms": 3.371745177322406,
+          "min_ms": 3.329998999106465,
+          "max_ms": 3.4634579988050973,
+          "std_ms": 0.023127441466826795,
+          "p50_ms": 3.3687489994917996,
+          "p90_ms": 3.4007017986368737,
+          "p95_ms": 3.415042700999038,
+          "p99_ms": 3.4474539809889393,
+          "fps": 296.582317882672,
+          "sample_count": 220
+        },
+        {
+          "mean_ms": 3.4108342954658095,
+          "min_ms": 3.339874001540011,
+          "max_ms": 3.8812760012660874,
+          "std_ms": 0.06420749375551564,
+          "p50_ms": 3.394332499738084,
+          "p90_ms": 3.4573941002236097,
+          "p95_ms": 3.5357636996195647,
+          "p99_ms": 3.6961185598920565,
+          "fps": 293.18340129549813,
+          "sample_count": 220
+        },
+        {
+          "mean_ms": 3.398628000063168,
+          "min_ms": 3.3192899991263403,
+          "max_ms": 5.157415998837678,
+          "std_ms": 0.1378273927768268,
+          "p50_ms": 3.364384499946027,
+          "p90_ms": 3.4923821009215317,
+          "p95_ms": 3.5434325506685127,
+          "p99_ms": 3.6819204490893753,
+          "fps": 294.2363800867331,
+          "sample_count": 220
+        }
+      ],
+      "model_key": "resnet50",
+      "model_path": "/home/HwHiAiUser/Desktop/CNN/Optimization/models/resnet50_baseline.om",
+      "label": "resnet_baseline_run1",
+      "compile_artifact": "/home/HwHiAiUser/Desktop/CNN/Optimization/models/resnet50_baseline.om"
+    },
+    {
+      "rounds": 3,
+      "iterations_per_round": 220,
+      "warmup_first": 30,
+      "warmup_full": 20,
+      "overall_mean_ms": 3.3805422757392414,
+      "overall_std_ms": 0.005490119890787982,
+      "round_means": [
+        3.387092668121609,
+        3.373657177284754,
+        3.38087698181136
+      ],
+      "per_round": [
+        {
+          "mean_ms": 3.387092668121609,
+          "min_ms": 3.3306440000160364,
+          "max_ms": 3.934255999411107,
+          "std_ms": 0.05978027162799963,
+          "p50_ms": 3.3701864995236974,
+          "p90_ms": 3.4492247003072407,
+          "p95_ms": 3.4971653491993493,
+          "p99_ms": 3.5719531994072895,
+          "fps": 295.23845314647775,
+          "sample_count": 220
+        },
+        {
+          "mean_ms": 3.373657177284754,
+          "min_ms": 3.3303319996775826,
+          "max_ms": 3.466875001322478,
+          "std_ms": 0.022600659955075687,
+          "p50_ms": 3.371634499671927,
+          "p90_ms": 3.401835101431061,
+          "p95_ms": 3.4126677996027865,
+          "p99_ms": 3.441463231065427,
+          "fps": 296.4142316335881,
+          "sample_count": 220
+        },
+        {
+          "mean_ms": 3.38087698181136,
+          "min_ms": 3.3328729987260886,
+          "max_ms": 3.489500000796397,
+          "std_ms": 0.024308645462464105,
+          "p50_ms": 3.379332500117016,
+          "p90_ms": 3.408030400350981,
+          "p95_ms": 3.421466650434013,
+          "p99_ms": 3.4554250293695077,
+          "fps": 295.7812441505144,
+          "sample_count": 220
+        }
+      ],
+      "model_key": "resnet50",
+      "model_path": "/home/HwHiAiUser/Desktop/CNN/Optimization/models/resnet50_fp16.om",
+      "label": "resnet_fp16_run1",
+      "compile_artifact": "/home/HwHiAiUser/Desktop/CNN/Optimization/models/resnet50_fp16.om"
+    },
+    {
+      "rounds": 3,
+      "iterations_per_round": 220,
+      "warmup_first": 30,
+      "warmup_full": 20,
+      "overall_mean_ms": 3.370094881822958,
+      "overall_std_ms": 0.007202711352018228,
+      "round_means": [
+        3.3664972728398754,
+        3.3801466544735543,
+        3.363640718155445
+      ],
+      "per_round": [
+        {
+          "mean_ms": 3.3664972728398754,
+          "min_ms": 3.327268999782973,
+          "max_ms": 3.5902299987355946,
+          "std_ms": 0.027047290097927317,
+          "p50_ms": 3.3631654996497673,
+          "p90_ms": 3.3909453011801816,
+          "p95_ms": 3.40569830059394,
+          "p99_ms": 3.43984100049056,
+          "fps": 297.04464877122274,
+          "sample_count": 220
+        },
+        {
+          "mean_ms": 3.3801466544735543,
+          "min_ms": 3.3352070004184498,
+          "max_ms": 3.5208339995733695,
+          "std_ms": 0.02700120693718249,
+          "p50_ms": 3.3747795005183434,
+          "p90_ms": 3.411155999492621,
+          "p95_ms": 3.4315203504775127,
+          "p99_ms": 3.4670712603838183,
+          "fps": 295.84515177071404,
+          "sample_count": 220
+        },
+        {
+          "mean_ms": 3.363640718155445,
+          "min_ms": 3.3133730012195883,
+          "max_ms": 3.5396049988776213,
+          "std_ms": 0.025692292192924033,
+          "p50_ms": 3.3616964992688736,
+          "p90_ms": 3.3904199002790847,
+          "p95_ms": 3.401525049685006,
+          "p99_ms": 3.4562173189624446,
+          "fps": 297.2969124206525,
+          "sample_count": 220
+        }
+      ],
+      "model_key": "resnet50",
+      "model_path": "/home/HwHiAiUser/Desktop/CNN/Optimization/models/resnet50_baseline.om",
+      "label": "resnet_baseline_run2",
+      "compile_artifact": "/home/HwHiAiUser/Desktop/CNN/Optimization/models/resnet50_baseline.om"
+    },
+    {
+      "rounds": 3,
+      "iterations_per_round": 220,
+      "warmup_first": 30,
+      "warmup_full": 20,
+      "overall_mean_ms": 3.368574410634403,
+      "overall_std_ms": 0.0073239535952103665,
+      "round_means": [
+        3.377677086361721,
+        3.359743304628699,
+        3.3683028409127886
+      ],
+      "per_round": [
+        {
+          "mean_ms": 3.377677086361721,
+          "min_ms": 3.330520001327386,
+          "max_ms": 3.588168001442682,
+          "std_ms": 0.03285079091455819,
+          "p50_ms": 3.3711445003064,
+          "p90_ms": 3.4109969001292484,
+          "p95_ms": 3.427742349504115,
+          "p99_ms": 3.4917815098197025,
+          "fps": 296.06145715875823,
+          "sample_count": 220
+        },
+        {
+          "mean_ms": 3.359743304628699,
+          "min_ms": 3.31731000005675,
+          "max_ms": 3.539979999914067,
+          "std_ms": 0.02739759984601362,
+          "p50_ms": 3.355092000674631,
+          "p90_ms": 3.3854782006528694,
+          "p95_ms": 3.3977751994825667,
+          "p99_ms": 3.472687270550523,
+          "fps": 297.641786687187,
+          "sample_count": 220
+        },
+        {
+          "mean_ms": 3.3683028409127886,
+          "min_ms": 3.3308950005448423,
+          "max_ms": 3.4903329997177934,
+          "std_ms": 0.021018316069792504,
+          "p50_ms": 3.3683424999253475,
+          "p90_ms": 3.390990999469068,
+          "p95_ms": 3.4023717988020508,
+          "p99_ms": 3.441910220117279,
+          "fps": 296.88541892777266,
+          "sample_count": 220
+        }
+      ],
+      "model_key": "resnet50",
+      "model_path": "/home/HwHiAiUser/Desktop/CNN/Optimization/models/resnet50_fp16.om",
+      "label": "resnet_fp16_run2",
+      "compile_artifact": "/home/HwHiAiUser/Desktop/CNN/Optimization/models/resnet50_fp16.om"
+    }
+  ],
+  "grouped_results": {
+    "mobilenet_baseline": [
+      {
+        "rounds": 3,
+        "iterations_per_round": 220,
+        "warmup_first": 30,
+        "warmup_full": 20,
+        "overall_mean_ms": 0.9582631484673501,
+        "overall_std_ms": 0.005132961639040966,
+        "round_means": [
+          0.9514751136273183,
+          0.9594294136480709,
+          0.9638849181266612
+        ],
+        "per_round": [
+          {
+            "mean_ms": 0.9514751136273183,
+            "min_ms": 0.9284690004278673,
+            "max_ms": 1.0793260007631034,
+            "std_ms": 0.015636433194590647,
+            "p50_ms": 0.9501675003775745,
+            "p90_ms": 0.9664955992775504,
+            "p95_ms": 0.9738155502418522,
+            "p99_ms": 1.0024662298201292,
+            "fps": 1050.9996380122752,
+            "sample_count": 220
+          },
+          {
+            "mean_ms": 0.9594294136480709,
+            "min_ms": 0.9275110005546594,
+            "max_ms": 1.0404290005681105,
+            "std_ms": 0.019125174936023854,
+            "p50_ms": 0.9573035003995756,
+            "p90_ms": 0.9843031009950209,
+            "p95_ms": 0.9990530497816508,
+            "p99_ms": 1.0182052799063968,
+            "fps": 1042.2861606855122,
+            "sample_count": 220
+          },
+          {
+            "mean_ms": 0.9638849181266612,
+            "min_ms": 0.9313650007243268,
+            "max_ms": 1.0441369995533023,
+            "std_ms": 0.018121892399095473,
+            "p50_ms": 0.9607719994164654,
+            "p90_ms": 0.9856663000391563,
+            "p95_ms": 0.9956509503354027,
+            "p99_ms": 1.0176352602502448,
+            "fps": 1037.4682508193296,
+            "sample_count": 220
+          }
+        ],
+        "model_key": "mobilenet_v3_small",
+        "model_path": "/home/HwHiAiUser/Desktop/CNN/Optimization/models/mobilenet_v3_small_baseline.om",
+        "label": "mobilenet_baseline_run1",
+        "compile_artifact": "/home/HwHiAiUser/Desktop/CNN/Optimization/models/mobilenet_v3_small_baseline.om"
+      },
+      {
+        "rounds": 3,
+        "iterations_per_round": 220,
+        "warmup_first": 30,
+        "warmup_full": 20,
+        "overall_mean_ms": 0.9643344833586359,
+        "overall_std_ms": 0.006441456918814604,
+        "round_means": [
+          0.9730659227484879,
+          0.9577193136217168,
+          0.9622182137057032
+        ],
+        "per_round": [
+          {
+            "mean_ms": 0.9730659227484879,
+            "min_ms": 0.9338239997305209,
+            "max_ms": 1.143473000411177,
+            "std_ms": 0.02388421538551192,
+            "p50_ms": 0.970729999608011,
+            "p90_ms": 1.0012521996031865,
+            "p95_ms": 1.0179309500017553,
+            "p99_ms": 1.0406347997923149,
+            "fps": 1027.6796017842605,
+            "sample_count": 220
+          },
+          {
+            "mean_ms": 0.9577193136217168,
+            "min_ms": 0.9299490011471789,
+            "max_ms": 1.0490759996173438,
+            "std_ms": 0.016948962247200435,
+            "p50_ms": 0.954875999923388,
+            "p90_ms": 0.9766342986040399,
+            "p95_ms": 0.9868247996564605,
+            "p99_ms": 1.0168760199121607,
+            "fps": 1044.1472629578643,
+            "sample_count": 220
+          },
+          {
+            "mean_ms": 0.9622182137057032,
+            "min_ms": 0.9263870015274733,
+            "max_ms": 1.0512840017327107,
+            "std_ms": 0.021755432967522585,
+            "p50_ms": 0.9586679998392356,
+            "p90_ms": 0.9915203998389188,
+            "p95_ms": 1.0057841997877404,
+            "p99_ms": 1.0308822798833717,
+            "fps": 1039.2652994467765,
+            "sample_count": 220
+          }
+        ],
+        "model_key": "mobilenet_v3_small",
+        "model_path": "/home/HwHiAiUser/Desktop/CNN/Optimization/models/mobilenet_v3_small_baseline.om",
+        "label": "mobilenet_baseline_run2",
+        "compile_artifact": "/home/HwHiAiUser/Desktop/CNN/Optimization/models/mobilenet_v3_small_baseline.om"
+      }
+    ],
+    "mobilenet_fp16": [
+      {
+        "rounds": 3,
+        "iterations_per_round": 220,
+        "warmup_first": 30,
+        "warmup_full": 20,
+        "overall_mean_ms": 0.9625559454103826,
+        "overall_std_ms": 0.00549574642196474,
+        "round_means": [
+          0.9630082999716582,
+          0.9556102908721765,
+          0.9690492453873131
+        ],
+        "per_round": [
+          {
+            "mean_ms": 0.9630082999716582,
+            "min_ms": 0.9276780001528095,
+            "max_ms": 1.0185329992964398,
+            "std_ms": 0.01649980034815332,
+            "p50_ms": 0.9608655000192812,
+            "p90_ms": 0.9832991994699114,
+            "p95_ms": 0.9936774503330525,
+            "p99_ms": 1.0138995408487972,
+            "fps": 1038.4126492257965,
+            "sample_count": 220
+          },
+          {
+            "mean_ms": 0.9556102908721765,
+            "min_ms": 0.9288649998779874,
+            "max_ms": 1.0199909993389156,
+            "std_ms": 0.014957472898292894,
+            "p50_ms": 0.9537095002087881,
+            "p90_ms": 0.9740970992424991,
+            "p95_ms": 0.9814852005547436,
+            "p99_ms": 0.9980628089942911,
+            "fps": 1046.451685955903,
+            "sample_count": 220
+          },
+          {
+            "mean_ms": 0.9690492453873131,
+            "min_ms": 0.9307399996032473,
+            "max_ms": 1.0215120000793831,
+            "std_ms": 0.01729983305654866,
+            "p50_ms": 0.9675324999989243,
+            "p90_ms": 0.9932269993441878,
+            "p95_ms": 0.9998416488997464,
+            "p99_ms": 1.0117277106292022,
+            "fps": 1031.9393000510686,
+            "sample_count": 220
+          }
+        ],
+        "model_key": "mobilenet_v3_small",
+        "model_path": "/home/HwHiAiUser/Desktop/CNN/Optimization/models/mobilenet_v3_small_fp16.om",
+        "label": "mobilenet_fp16_run1",
+        "compile_artifact": "/home/HwHiAiUser/Desktop/CNN/Optimization/models/mobilenet_v3_small_fp16.om"
+      },
+      {
+        "rounds": 3,
+        "iterations_per_round": 220,
+        "warmup_first": 30,
+        "warmup_full": 20,
+        "overall_mean_ms": 0.9608725954229048,
+        "overall_std_ms": 0.0020095926513928677,
+        "round_means": [
+          0.9610822181209435,
+          0.9632223181804214,
+          0.9583132499673493
+        ],
+        "per_round": [
+          {
+            "mean_ms": 0.9610822181209435,
+            "min_ms": 0.9367820002808003,
+            "max_ms": 1.0590130004857201,
+            "std_ms": 0.015767308585047136,
+            "p50_ms": 0.9589389992470387,
+            "p90_ms": 0.9779242001968669,
+            "p95_ms": 0.9878226511318644,
+            "p99_ms": 1.0188939892577764,
+            "fps": 1040.4937071410461,
+            "sample_count": 220
+          },
+          {
+            "mean_ms": 0.9632223181804214,
+            "min_ms": 0.9336990005976986,
+            "max_ms": 1.1131379997095792,
+            "std_ms": 0.019562980635905274,
+            "p50_ms": 0.9605115001249942,
+            "p90_ms": 0.98354340007063,
+            "p95_ms": 0.9893409997857816,
+            "p99_ms": 1.0302507397500449,
+            "fps": 1038.1819244897208,
+            "sample_count": 220
+          },
+          {
+            "mean_ms": 0.9583132499673493,
+            "min_ms": 0.9289280005759792,
+            "max_ms": 1.0093870005221106,
+            "std_ms": 0.01399878809695652,
+            "p50_ms": 0.9577094997439417,
+            "p90_ms": 0.9764012997038662,
+            "p95_ms": 0.9836511002504267,
+            "p99_ms": 0.9904739603189228,
+            "fps": 1043.5001290382565,
+            "sample_count": 220
+          }
+        ],
+        "model_key": "mobilenet_v3_small",
+        "model_path": "/home/HwHiAiUser/Desktop/CNN/Optimization/models/mobilenet_v3_small_fp16.om",
+        "label": "mobilenet_fp16_run2",
+        "compile_artifact": "/home/HwHiAiUser/Desktop/CNN/Optimization/models/mobilenet_v3_small_fp16.om"
+      }
+    ],
+    "resnet_baseline": [
+      {
+        "rounds": 3,
+        "iterations_per_round": 220,
+        "warmup_first": 30,
+        "warmup_full": 20,
+        "overall_mean_ms": 3.3937358242837945,
+        "overall_std_ms": 0.016328703300210537,
+        "round_means": [
+          3.371745177322406,
+          3.4108342954658095,
+          3.398628000063168
+        ],
+        "per_round": [
+          {
+            "mean_ms": 3.371745177322406,
+            "min_ms": 3.329998999106465,
+            "max_ms": 3.4634579988050973,
+            "std_ms": 0.023127441466826795,
+            "p50_ms": 3.3687489994917996,
+            "p90_ms": 3.4007017986368737,
+            "p95_ms": 3.415042700999038,
+            "p99_ms": 3.4474539809889393,
+            "fps": 296.582317882672,
+            "sample_count": 220
+          },
+          {
+            "mean_ms": 3.4108342954658095,
+            "min_ms": 3.339874001540011,
+            "max_ms": 3.8812760012660874,
+            "std_ms": 0.06420749375551564,
+            "p50_ms": 3.394332499738084,
+            "p90_ms": 3.4573941002236097,
+            "p95_ms": 3.5357636996195647,
+            "p99_ms": 3.6961185598920565,
+            "fps": 293.18340129549813,
+            "sample_count": 220
+          },
+          {
+            "mean_ms": 3.398628000063168,
+            "min_ms": 3.3192899991263403,
+            "max_ms": 5.157415998837678,
+            "std_ms": 0.1378273927768268,
+            "p50_ms": 3.364384499946027,
+            "p90_ms": 3.4923821009215317,
+            "p95_ms": 3.5434325506685127,
+            "p99_ms": 3.6819204490893753,
+            "fps": 294.2363800867331,
+            "sample_count": 220
+          }
+        ],
+        "model_key": "resnet50",
+        "model_path": "/home/HwHiAiUser/Desktop/CNN/Optimization/models/resnet50_baseline.om",
+        "label": "resnet_baseline_run1",
+        "compile_artifact": "/home/HwHiAiUser/Desktop/CNN/Optimization/models/resnet50_baseline.om"
+      },
+      {
+        "rounds": 3,
+        "iterations_per_round": 220,
+        "warmup_first": 30,
+        "warmup_full": 20,
+        "overall_mean_ms": 3.370094881822958,
+        "overall_std_ms": 0.007202711352018228,
+        "round_means": [
+          3.3664972728398754,
+          3.3801466544735543,
+          3.363640718155445
+        ],
+        "per_round": [
+          {
+            "mean_ms": 3.3664972728398754,
+            "min_ms": 3.327268999782973,
+            "max_ms": 3.5902299987355946,
+            "std_ms": 0.027047290097927317,
+            "p50_ms": 3.3631654996497673,
+            "p90_ms": 3.3909453011801816,
+            "p95_ms": 3.40569830059394,
+            "p99_ms": 3.43984100049056,
+            "fps": 297.04464877122274,
+            "sample_count": 220
+          },
+          {
+            "mean_ms": 3.3801466544735543,
+            "min_ms": 3.3352070004184498,
+            "max_ms": 3.5208339995733695,
+            "std_ms": 0.02700120693718249,
+            "p50_ms": 3.3747795005183434,
+            "p90_ms": 3.411155999492621,
+            "p95_ms": 3.4315203504775127,
+            "p99_ms": 3.4670712603838183,
+            "fps": 295.84515177071404,
+            "sample_count": 220
+          },
+          {
+            "mean_ms": 3.363640718155445,
+            "min_ms": 3.3133730012195883,
+            "max_ms": 3.5396049988776213,
+            "std_ms": 0.025692292192924033,
+            "p50_ms": 3.3616964992688736,
+            "p90_ms": 3.3904199002790847,
+            "p95_ms": 3.401525049685006,
+            "p99_ms": 3.4562173189624446,
+            "fps": 297.2969124206525,
+            "sample_count": 220
+          }
+        ],
+        "model_key": "resnet50",
+        "model_path": "/home/HwHiAiUser/Desktop/CNN/Optimization/models/resnet50_baseline.om",
+        "label": "resnet_baseline_run2",
+        "compile_artifact": "/home/HwHiAiUser/Desktop/CNN/Optimization/models/resnet50_baseline.om"
+      }
+    ],
+    "resnet_fp16": [
+      {
+        "rounds": 3,
+        "iterations_per_round": 220,
+        "warmup_first": 30,
+        "warmup_full": 20,
+        "overall_mean_ms": 3.3805422757392414,
+        "overall_std_ms": 0.005490119890787982,
+        "round_means": [
+          3.387092668121609,
+          3.373657177284754,
+          3.38087698181136
+        ],
+        "per_round": [
+          {
+            "mean_ms": 3.387092668121609,
+            "min_ms": 3.3306440000160364,
+            "max_ms": 3.934255999411107,
+            "std_ms": 0.05978027162799963,
+            "p50_ms": 3.3701864995236974,
+            "p90_ms": 3.4492247003072407,
+            "p95_ms": 3.4971653491993493,
+            "p99_ms": 3.5719531994072895,
+            "fps": 295.23845314647775,
+            "sample_count": 220
+          },
+          {
+            "mean_ms": 3.373657177284754,
+            "min_ms": 3.3303319996775826,
+            "max_ms": 3.466875001322478,
+            "std_ms": 0.022600659955075687,
+            "p50_ms": 3.371634499671927,
+            "p90_ms": 3.401835101431061,
+            "p95_ms": 3.4126677996027865,
+            "p99_ms": 3.441463231065427,
+            "fps": 296.4142316335881,
+            "sample_count": 220
+          },
+          {
+            "mean_ms": 3.38087698181136,
+            "min_ms": 3.3328729987260886,
+            "max_ms": 3.489500000796397,
+            "std_ms": 0.024308645462464105,
+            "p50_ms": 3.379332500117016,
+            "p90_ms": 3.408030400350981,
+            "p95_ms": 3.421466650434013,
+            "p99_ms": 3.4554250293695077,
+            "fps": 295.7812441505144,
+            "sample_count": 220
+          }
+        ],
+        "model_key": "resnet50",
+        "model_path": "/home/HwHiAiUser/Desktop/CNN/Optimization/models/resnet50_fp16.om",
+        "label": "resnet_fp16_run1",
+        "compile_artifact": "/home/HwHiAiUser/Desktop/CNN/Optimization/models/resnet50_fp16.om"
+      },
+      {
+        "rounds": 3,
+        "iterations_per_round": 220,
+        "warmup_first": 30,
+        "warmup_full": 20,
+        "overall_mean_ms": 3.368574410634403,
+        "overall_std_ms": 0.0073239535952103665,
+        "round_means": [
+          3.377677086361721,
+          3.359743304628699,
+          3.3683028409127886
+        ],
+        "per_round": [
+          {
+            "mean_ms": 3.377677086361721,
+            "min_ms": 3.330520001327386,
+            "max_ms": 3.588168001442682,
+            "std_ms": 0.03285079091455819,
+            "p50_ms": 3.3711445003064,
+            "p90_ms": 3.4109969001292484,
+            "p95_ms": 3.427742349504115,
+            "p99_ms": 3.4917815098197025,
+            "fps": 296.06145715875823,
+            "sample_count": 220
+          },
+          {
+            "mean_ms": 3.359743304628699,
+            "min_ms": 3.31731000005675,
+            "max_ms": 3.539979999914067,
+            "std_ms": 0.02739759984601362,
+            "p50_ms": 3.355092000674631,
+            "p90_ms": 3.3854782006528694,
+            "p95_ms": 3.3977751994825667,
+            "p99_ms": 3.472687270550523,
+            "fps": 297.641786687187,
+            "sample_count": 220
+          },
+          {
+            "mean_ms": 3.3683028409127886,
+            "min_ms": 3.3308950005448423,
+            "max_ms": 3.4903329997177934,
+            "std_ms": 0.021018316069792504,
+            "p50_ms": 3.3683424999253475,
+            "p90_ms": 3.390990999469068,
+            "p95_ms": 3.4023717988020508,
+            "p99_ms": 3.441910220117279,
+            "fps": 296.88541892777266,
+            "sample_count": 220
+          }
+        ],
+        "model_key": "resnet50",
+        "model_path": "/home/HwHiAiUser/Desktop/CNN/Optimization/models/resnet50_fp16.om",
+        "label": "resnet_fp16_run2",
+        "compile_artifact": "/home/HwHiAiUser/Desktop/CNN/Optimization/models/resnet50_fp16.om"
+      }
+    ]
+  },
+  "summary": {
+    "mobilenet": {
+      "a_avg_ms": 0.9612988159129929,
+      "b_avg_ms": 0.9617142704166437,
+      "delta_ms": 0.0004154545036507695,
+      "delta_pct_vs_a": 0.0432180396743953,
+      "a_runs": [
+        0.9582631484673501,
+        0.9643344833586359
+      ],
+      "b_runs": [
+        0.9625559454103826,
+        0.9608725954229048
+      ]
+    },
+    "resnet50": {
+      "a_avg_ms": 3.381915353053376,
+      "b_avg_ms": 3.3745583431868225,
+      "delta_ms": -0.007357009866553632,
+      "delta_pct_vs_a": -0.21753974001482104,
+      "a_runs": [
+        3.3937358242837945,
+        3.370094881822958
+      ],
+      "b_runs": [
+        3.3805422757392414,
+        3.368574410634403
+      ]
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+    "binFileName":"te_hardsigmoid_73796afb7647a7b97b5ed27c2aea289f8c70ca75d72fc7aa578d46f3a542fe72",
+    "binFileSuffix":".o",
+    "blockDim":1,
+    "coreType":"VectorCore",
+    "deterministic":"ignore",
+    "kernelName":"te_hardsigmoid_73796afb7647a7b97b5ed27c2aea289f8c70ca75d72fc7aa578d46f3a542fe72__kernel0",
+    "magic":"RT_DEV_BINARY_MAGIC_ELF_AIVEC",
+    "memoryStamping":[],
+    "opParaSize":0,
+    "parameters":[
+        null,
+        null
+    ],
+    "sha256":"af48c3d1bbd11ca56360af388150b7d9f4d7c96c4d8ed9bf51234e7c6363cc6e"
+}

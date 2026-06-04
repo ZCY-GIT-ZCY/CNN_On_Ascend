@@ -1,0 +1,46 @@
+{
+  "summary": {
+    "standard_conv_model": {
+      "name": "ResNet50",
+      "total_conv_layers": 53,
+      "bottleneck_blocks": 16,
+      "dominant_fusions": [
+        "Conv+BN+ReLU",
+        "Conv+BN+Add+ReLU",
+        "Downsample Conv+BN"
+      ],
+      "fusion_density": 1.0
+    },
+    "depthwise_model": {
+      "name": "MobileNetV3-Small",
+      "total_conv_layers": 34,
+      "depthwise_layers": 11,
+      "pointwise_layers": 21,
+      "se_blocks": 9,
+      "dominant_fusions": [
+        "PW(expand)+BN+Act",
+        "DWConv+BN+Act",
+        "SE scale",
+        "PW(project)+Add"
+      ],
+      "fusion_density": 1.4411764705882353
+    }
+  },
+  "insights": [
+    {
+      "topic": "普通卷积",
+      "observation": "ResNet50 的融合机会集中在残差瓶颈块内，Conv-BN-ReLU 模式规则、重复率高，适合编译器做稳定图融合。",
+      "risk": "主瓶颈不在逐元素算子数量，而在 3x3 标准卷积的大特征图读写与残差分支同步带来的 DDR/FixPipe 压力。"
+    },
+    {
+      "topic": "深度可分离卷积",
+      "observation": "MobileNetV3 的融合点分散在 PW、DW、SE 和短残差中，单次卷积计算量小，更多受 kernel 启动、布局转换和 cache 复用影响。",
+      "risk": "DWConv 算术强度低，哪怕 BN 已折叠，仍然可能受 MTE2 和 FixPipe 支配，需额外关注 layout 与中间张量驻留。"
+    },
+    {
+      "topic": "对比",
+      "observation": "普通卷积模型更适合做块级融合（BottleNeck 尾部 Add+ReLU），深度可分离模型更适合做链式融合（Expand/DW/Project/SE 的连续调度优化）。",
+      "risk": "同一类 ONNX 简化未必同时提升两类网络，需要分开评估各项优化。"
+    }
+  ]
+}

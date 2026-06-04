@@ -1,0 +1,84 @@
+{
+  "mobilenet_v3_small": {
+    "original": {
+      "path": "/home/HwHiAiUser/Desktop/CNN/MobileNet/mobilenetv3.onnx",
+      "total_nodes": 141,
+      "initializer_count": 108,
+      "conv_like_nodes": 54,
+      "norm_like_nodes": 0,
+      "activation_like_nodes": 76,
+      "transpose_like_nodes": 1,
+      "op_counts": {
+        "Conv": 52,
+        "HardSigmoid": 28,
+        "Mul": 28,
+        "Relu": 14,
+        "GlobalAveragePool": 10,
+        "Add": 6,
+        "Flatten": 1,
+        "Gemm": 2
+      },
+      "file_size_mb": 9.713970184326172
+    },
+    "shape_inferred": {
+      "path": "/home/HwHiAiUser/Desktop/CNN/Optimization/models/mobilenet_v3_small_shape_inferred.onnx",
+      "total_nodes": 141,
+      "initializer_count": 108,
+      "conv_like_nodes": 54,
+      "norm_like_nodes": 0,
+      "activation_like_nodes": 76,
+      "transpose_like_nodes": 1,
+      "op_counts": {
+        "Conv": 52,
+        "HardSigmoid": 28,
+        "Mul": 28,
+        "Relu": 14,
+        "GlobalAveragePool": 10,
+        "Add": 6,
+        "Flatten": 1,
+        "Gemm": 2
+      },
+      "file_size_mb": 9.725333213806152
+    }
+  },
+  "resnet50": {
+    "original": {
+      "path": "/home/HwHiAiUser/Desktop/CNN/ResNet/resnet50.onnx",
+      "total_nodes": 122,
+      "initializer_count": 108,
+      "conv_like_nodes": 54,
+      "norm_like_nodes": 0,
+      "activation_like_nodes": 65,
+      "transpose_like_nodes": 1,
+      "op_counts": {
+        "Conv": 53,
+        "Relu": 49,
+        "MaxPool": 1,
+        "Add": 16,
+        "GlobalAveragePool": 1,
+        "Flatten": 1,
+        "Gemm": 1
+      },
+      "file_size_mb": 97.41439628601074
+    },
+    "shape_inferred": {
+      "path": "/home/HwHiAiUser/Desktop/CNN/Optimization/models/resnet50_shape_inferred.onnx",
+      "total_nodes": 122,
+      "initializer_count": 108,
+      "conv_like_nodes": 54,
+      "norm_like_nodes": 0,
+      "activation_like_nodes": 65,
+      "transpose_like_nodes": 1,
+      "op_counts": {
+        "Conv": 53,
+        "Relu": 49,
+        "MaxPool": 1,
+        "Add": 16,
+        "GlobalAveragePool": 1,
+        "Flatten": 1,
+        "Gemm": 1
+      },
+      "file_size_mb": 97.42179107666016
+    }
+  }
+}

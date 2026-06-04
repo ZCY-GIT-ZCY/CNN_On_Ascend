@@ -1,0 +1,74 @@
+{
+  "resnet50": {
+    "opset13": {
+      "status": "ok",
+      "sample_count": 32,
+      "max_abs_diff": 6.198883056640625e-06,
+      "mean_abs_diff": 6.340921459013771e-07,
+      "rmse": 8.159693720699579e-07,
+      "cosine_similarity_mean": 1.0,
+      "top1_match_rate": 1.0,
+      "note": "baseline 为 torchvision PyTorch 权重前向输出；variant 为导出 ONNX CPU 推理输出。"
+    },
+    "shape_inferred": {
+      "status": "ok",
+      "sample_count": 32,
+      "max_abs_diff": 6.198883056640625e-06,
+      "mean_abs_diff": 6.340921459013771e-07,
+      "rmse": 8.159693720699579e-07,
+      "cosine_similarity_mean": 1.0,
+      "top1_match_rate": 1.0,
+      "note": "baseline 为 torchvision PyTorch 权重前向输出；variant 为导出 ONNX CPU 推理输出。"
+    },
+    "bn_folded": {
+      "status": "ok",
+      "sample_count": 32,
+      "max_abs_diff": 658780800.0,
+      "mean_abs_diff": 133828784.0,
+      "rmse": 168845520.0,
+      "cosine_similarity_mean": -0.09773512184619904,
+      "top1_match_rate": 0.0,
+      "note": "baseline 为 torchvision PyTorch 权重前向输出；variant 为导出 ONNX CPU 推理输出。"
+    },
+    "channels_last": {
+      "status": "ok",
+      "sample_count": 32,
+      "max_abs_diff": 6.198883056640625e-06,
+      "mean_abs_diff": 6.340921459013771e-07,
+      "rmse": 8.159693720699579e-07,
+      "cosine_similarity_mean": 1.0,
+      "top1_match_rate": 1.0,
+      "note": "baseline 为 torchvision PyTorch 权重前向输出；variant 为导出 ONNX CPU 推理输出。"
+    },
+    "fp16": {
+      "status": "failed",
+      "sample_count": 32,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "rmse": 0.0,
+      "cosine_similarity_mean": 0.0,
+      "top1_match_rate": 0.0,
+      "note": "[ONNXRuntimeError] : 9 : NOT_IMPLEMENTED : Failed to find kernel for com.ms.internal.nhwc.MaxPool(11) (node:'MaxPool' ep:'CPUExecutionProvider'). Op with name (MaxPool) domain (com.ms.internal.nhwc) and type (MaxPool) kernel is not supported in CPUExecutionProvider. Encountered following errors: ( Version mismatch. node_version: 11 kernel start version: 12 kernel_end_version: 2147483647\n)"
+    },
+    "onnxsim": {
+      "status": "ok",
+      "sample_count": 32,
+      "max_abs_diff": 6.198883056640625e-06,
+      "mean_abs_diff": 6.340921459013771e-07,
+      "rmse": 8.159693720699579e-07,
+      "cosine_similarity_mean": 1.0,
+      "top1_match_rate": 1.0,
+      "note": "baseline 为 torchvision PyTorch 权重前向输出；variant 为导出 ONNX CPU 推理输出。"
+    },
+    "onnxoptimizer": {
+      "status": "ok",
+      "sample_count": 32,
+      "max_abs_diff": 6.198883056640625e-06,
+      "mean_abs_diff": 6.340921459013771e-07,
+      "rmse": 8.159693720699579e-07,
+      "cosine_similarity_mean": 1.0,
+      "top1_match_rate": 1.0,
+      "note": "baseline 为 torchvision PyTorch 权重前向输出；variant 为导出 ONNX CPU 推理输出。"
+    }
+  }
+}
