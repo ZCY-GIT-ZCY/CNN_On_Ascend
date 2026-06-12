@@ -1,0 +1,16 @@
+{
+  "mobilenet_v3_small": {
+    "reexport_plain_latency_ms": 1.0911831585569114,
+    "reexport_plain_vs_baseline_pct": 14.943280185983559,
+    "best_reexport_variant": "fp16",
+    "best_reexport_variant_latency_ms": 0.9863471667207099,
+    "best_variant_vs_plain_pct": -9.607552225681983
+  },
+  "resnet50": {
+    "reexport_plain_latency_ms": 3.5404551416831964,
+    "reexport_plain_vs_baseline_pct": 5.794603149825554,
+    "best_reexport_variant": "fp16",
+    "best_reexport_variant_latency_ms": 3.3779057334565246,
+    "best_variant_vs_plain_pct": -4.5912008971081875
+  }
+}
