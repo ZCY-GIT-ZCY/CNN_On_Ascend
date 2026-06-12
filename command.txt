@@ -1,0 +1,20 @@
+ssh -R 17897:127.0.0.1:7897 Ascend
+export http_proxy=http://127.0.0.1:17897
+export https_proxy=http://127.0.0.1:17897
+export HTTP_PROXY=http://127.0.0.1:17897
+export HTTPS_PROXY=http://127.0.0.1:17897
+
+cd Desktop/CNN
+bash use-deepseek-claude.sh
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+nvm use 20
+claude 
+
+ssh Ascend
+cd Desktop/CNN
+bash use-deepseek-claude.sh
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+nvm use 20
+claude 

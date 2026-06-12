@@ -1,0 +1,71 @@
+{
+  "model_key": "mobilenet_v3_small",
+  "noise_floor": {
+    "mean": 1.1008,
+    "between_run_std": 0.0181,
+    "range": "1.0752~1.1321ms",
+    "range_pct": 5.16,
+    "ci_95_half": 0.013,
+    "min_detectable_effect_pct": 1.18,
+    "n": 10
+  },
+  "analysis": {
+    "baseline": "reexport_plain",
+    "baseline_mean_ms": 1.1273,
+    "noise_baseline": {
+      "between_run_std": 0.0181,
+      "min_detectable_effect_pct": 1.18
+    },
+    "variants": {
+      "fp16": {
+        "mean_ms": 1.0088,
+        "diff_pct": -10.51,
+        "p_value": 0.0241,
+        "significant": true,
+        "exceeds_noise": true
+      },
+      "shape_inferred": {
+        "mean_ms": 1.0837,
+        "diff_pct": -3.86,
+        "p_value": 0.3021,
+        "significant": false,
+        "exceeds_noise": true
+      },
+      "onnxsim": {
+        "mean_ms": 1.0904,
+        "diff_pct": -3.27,
+        "p_value": 0.3778,
+        "significant": false,
+        "exceeds_noise": true
+      },
+      "channels_last": {
+        "mean_ms": 1.0935,
+        "diff_pct": -3.0,
+        "p_value": 0.4236,
+        "significant": false,
+        "exceeds_noise": true
+      },
+      "opset13": {
+        "mean_ms": 1.0954,
+        "diff_pct": -2.83,
+        "p_value": 0.4454,
+        "significant": false,
+        "exceeds_noise": true
+      },
+      "bn_folded": {
+        "mean_ms": 1.1011,
+        "diff_pct": -2.32,
+        "p_value": 0.5341,
+        "significant": false,
+        "exceeds_noise": true
+      },
+      "onnxoptimizer": {
+        "mean_ms": 1.1025,
+        "diff_pct": -2.2,
+        "p_value": 0.5486,
+        "significant": false,
+        "exceeds_noise": true
+      }
+    }
+  }
+}

@@ -1,0 +1,33 @@
+2026-06-07 20:21:15 (45061) - [DEBUG] Start run exec_single_case tail...
+2026-06-07 20:21:15 (45061) - [ERROR] Received invalid runtime error code:0x7bc87
+2026-06-07 20:21:15 (45061) - [DEBUG] Run single case over, result: [(0, 507015, 0)]
+2026-06-07 20:21:15 (45061) - [DEBUG] Start run exec_single_case magic...
+2026-06-07 20:21:15 (45061) - [ERROR] Received invalid runtime error code:0x7bc87
+2026-06-07 20:21:15 (45061) - [DEBUG] Run single case over, result: [(0, 507015, 0)]
+2026-06-07 20:21:15 (45061) - [ERROR] exec single op case failed.
+launch kernel result : 0.
+execute result : 507015.
+memery status check result : 0.
+
+2026-06-07 20:21:49 (45233) - [DEBUG] Start run exec_single_case tail...
+2026-06-07 20:21:49 (45233) - [ERROR] Received invalid runtime error code:0x7bc87
+2026-06-07 20:21:49 (45233) - [DEBUG] Run single case over, result: [(0, 507015, 0)]
+2026-06-07 20:21:49 (45233) - [DEBUG] Start run exec_single_case magic...
+2026-06-07 20:21:49 (45233) - [ERROR] Received invalid runtime error code:0x7bc87
+2026-06-07 20:21:49 (45233) - [DEBUG] Run single case over, result: [(0, 507015, 0)]
+2026-06-07 20:21:49 (45233) - [ERROR] exec single op case failed.
+launch kernel result : 0.
+execute result : 507015.
+memery status check result : 0.
+
+2026-06-07 20:22:24 (45373) - [DEBUG] Start run exec_single_case tail...
+2026-06-07 20:22:24 (45373) - [ERROR] Received invalid runtime error code:0x7bc87
+2026-06-07 20:22:24 (45373) - [DEBUG] Run single case over, result: [(0, 507015, 0)]
+2026-06-07 20:22:24 (45373) - [DEBUG] Start run exec_single_case magic...
+2026-06-07 20:22:24 (45373) - [ERROR] Received invalid runtime error code:0x7bc87
+2026-06-07 20:22:24 (45373) - [DEBUG] Run single case over, result: [(0, 507015, 0)]
+2026-06-07 20:22:24 (45373) - [ERROR] exec single op case failed.
+launch kernel result : 0.
+execute result : 507015.
+memery status check result : 0.
+

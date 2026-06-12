@@ -1,0 +1,8 @@
+[
+  {
+    "basic": {
+      "tuning_name": "mobilenetv3",
+      "tuning_time(s)": 12
+    }
+  }
+]

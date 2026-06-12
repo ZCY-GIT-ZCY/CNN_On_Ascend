@@ -1,0 +1,8 @@
+[
+  {
+    "basic": {
+      "tuning_name": "resnet50",
+      "tuning_time(s)": 13
+    }
+  }
+]

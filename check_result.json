@@ -1,0 +1,30 @@
+{
+  "fail": 1,
+  "name": "",
+  "op": [
+    {
+      "cause": [
+        {
+          "code": 1,
+          "message": "The type is not supported."
+        }
+      ],
+      "name": "HSM",
+      "result": "failed",
+      "type": "ai.onnx::13::HardSigmoidMul"
+    },
+    {
+      "name": "input",
+      "result": "success",
+      "type": "Input"
+    },
+    {
+      "name": "scale",
+      "result": "success",
+      "type": "Input"
+    }
+  ],
+  "pass": 2,
+  "result": "failed",
+  "total": 3
+}

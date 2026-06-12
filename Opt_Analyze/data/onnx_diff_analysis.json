@@ -1,0 +1,856 @@
+{
+  "mobilenet_v3_small": {
+    "original": {
+      "path": "/home/HwHiAiUser/Desktop/CNN/MobileNet/mobilenetv3.onnx",
+      "file_size_mb": 9.714,
+      "ir_version": 6,
+      "opset_imports": {
+        "": 11
+      },
+      "total_nodes": 141,
+      "op_counts": {
+        "Conv": 52,
+        "HardSigmoid": 28,
+        "Mul": 28,
+        "Relu": 14,
+        "GlobalAveragePool": 10,
+        "Add": 6,
+        "Gemm": 2,
+        "Flatten": 1
+      },
+      "initializer_count": 108,
+      "input_info": [
+        {
+          "name": "input_image",
+          "shape": [
+            "1",
+            "3",
+            "224",
+            "224"
+          ],
+          "dtype": 1
+        }
+      ],
+      "output_info": [
+        {
+          "name": "output_tensor",
+          "shape": [
+            "1",
+            "1000"
+          ],
+          "dtype": 1
+        }
+      ],
+      "special_nodes": {},
+      "constant_nodes_count": 0
+    },
+    "variants": {
+      "shape_inferred": {
+        "path": "/home/HwHiAiUser/Desktop/CNN/Optimization/models/mobilenet_v3_small_shape_inferred.onnx",
+        "file_size_mb": 9.7253,
+        "ir_version": 6,
+        "opset_imports": {
+          "": 11
+        },
+        "total_nodes": 141,
+        "op_counts": {
+          "Conv": 52,
+          "HardSigmoid": 28,
+          "Mul": 28,
+          "Relu": 14,
+          "GlobalAveragePool": 10,
+          "Add": 6,
+          "Gemm": 2,
+          "Flatten": 1
+        },
+        "initializer_count": 108,
+        "input_info": [
+          {
+            "name": "input_image",
+            "shape": [
+              "1",
+              "3",
+              "224",
+              "224"
+            ],
+            "dtype": 1
+          }
+        ],
+        "output_info": [
+          {
+            "name": "output_tensor",
+            "shape": [
+              "1",
+              "1000"
+            ],
+            "dtype": 1
+          }
+        ],
+        "special_nodes": {},
+        "constant_nodes_count": 0
+      },
+      "opset13": {
+        "path": "/home/HwHiAiUser/Desktop/CNN/Optimization/models/mobilenet_v3_small_opset13.onnx",
+        "file_size_mb": 9.714,
+        "ir_version": 7,
+        "opset_imports": {
+          "": 13
+        },
+        "total_nodes": 141,
+        "op_counts": {
+          "Conv": 52,
+          "HardSigmoid": 28,
+          "Mul": 28,
+          "Relu": 14,
+          "GlobalAveragePool": 10,
+          "Add": 6,
+          "Gemm": 2,
+          "Flatten": 1
+        },
+        "initializer_count": 108,
+        "input_info": [
+          {
+            "name": "input_image",
+            "shape": [
+              "1",
+              "3",
+              "224",
+              "224"
+            ],
+            "dtype": 1
+          }
+        ],
+        "output_info": [
+          {
+            "name": "output_tensor",
+            "shape": [
+              "1",
+              "1000"
+            ],
+            "dtype": 1
+          }
+        ],
+        "special_nodes": {},
+        "constant_nodes_count": 0
+      },
+      "bn_folded": {
+        "path": "/home/HwHiAiUser/Desktop/CNN/Optimization/models/mobilenet_v3_small_bn_folded.onnx",
+        "file_size_mb": 9.7159,
+        "ir_version": 6,
+        "opset_imports": {
+          "": 11
+        },
+        "total_nodes": 141,
+        "op_counts": {
+          "Conv": 52,
+          "HardSigmoid": 28,
+          "Mul": 28,
+          "Relu": 14,
+          "GlobalAveragePool": 10,
+          "Add": 6,
+          "Gemm": 2,
+          "Flatten": 1
+        },
+        "initializer_count": 108,
+        "input_info": [
+          {
+            "name": "input_image",
+            "shape": [
+              "1",
+              "3",
+              "224",
+              "224"
+            ],
+            "dtype": 1
+          }
+        ],
+        "output_info": [
+          {
+            "name": "output_tensor",
+            "shape": [
+              "1",
+              "1000"
+            ],
+            "dtype": 1
+          }
+        ],
+        "special_nodes": {},
+        "constant_nodes_count": 0
+      },
+      "channels_last": {
+        "path": "/home/HwHiAiUser/Desktop/CNN/Optimization/models/mobilenet_v3_small_channels_last.onnx",
+        "file_size_mb": 9.714,
+        "ir_version": 6,
+        "opset_imports": {
+          "": 11
+        },
+        "total_nodes": 141,
+        "op_counts": {
+          "Conv": 52,
+          "HardSigmoid": 28,
+          "Mul": 28,
+          "Relu": 14,
+          "GlobalAveragePool": 10,
+          "Add": 6,
+          "Gemm": 2,
+          "Flatten": 1
+        },
+        "initializer_count": 108,
+        "input_info": [
+          {
+            "name": "input_image",
+            "shape": [
+              "1",
+              "3",
+              "224",
+              "224"
+            ],
+            "dtype": 1
+          }
+        ],
+        "output_info": [
+          {
+            "name": "output_tensor",
+            "shape": [
+              "1",
+              "1000"
+            ],
+            "dtype": 1
+          }
+        ],
+        "special_nodes": {},
+        "constant_nodes_count": 0
+      },
+      "fp16": {
+        "path": "/home/HwHiAiUser/Desktop/CNN/Optimization/models/mobilenet_v3_small_fp16.onnx",
+        "file_size_mb": 4.8754,
+        "ir_version": 6,
+        "opset_imports": {
+          "": 11
+        },
+        "total_nodes": 141,
+        "op_counts": {
+          "Conv": 52,
+          "HardSigmoid": 28,
+          "Mul": 28,
+          "Relu": 14,
+          "GlobalAveragePool": 10,
+          "Add": 6,
+          "Gemm": 2,
+          "Flatten": 1
+        },
+        "initializer_count": 108,
+        "input_info": [
+          {
+            "name": "input_image",
+            "shape": [
+              "1",
+              "3",
+              "224",
+              "224"
+            ],
+            "dtype": 10
+          }
+        ],
+        "output_info": [
+          {
+            "name": "output_tensor",
+            "shape": [
+              "1",
+              "1000"
+            ],
+            "dtype": 10
+          }
+        ],
+        "special_nodes": {},
+        "constant_nodes_count": 0
+      },
+      "onnxsim": {
+        "path": "/home/HwHiAiUser/Desktop/CNN/Optimization/models/mobilenet_v3_small_onnxsim.onnx",
+        "file_size_mb": 9.7253,
+        "ir_version": 7,
+        "opset_imports": {
+          "": 13
+        },
+        "total_nodes": 141,
+        "op_counts": {
+          "Conv": 52,
+          "HardSigmoid": 28,
+          "Mul": 28,
+          "Relu": 14,
+          "GlobalAveragePool": 10,
+          "Add": 6,
+          "Gemm": 2,
+          "Flatten": 1
+        },
+        "initializer_count": 108,
+        "input_info": [
+          {
+            "name": "input_image",
+            "shape": [
+              "1",
+              "3",
+              "224",
+              "224"
+            ],
+            "dtype": 1
+          }
+        ],
+        "output_info": [
+          {
+            "name": "output_tensor",
+            "shape": [
+              "1",
+              "1000"
+            ],
+            "dtype": 1
+          }
+        ],
+        "special_nodes": {},
+        "constant_nodes_count": 0
+      },
+      "onnxoptimizer": {
+        "path": "/home/HwHiAiUser/Desktop/CNN/Optimization/models/mobilenet_v3_small_onnxoptimizer.onnx",
+        "file_size_mb": 9.714,
+        "ir_version": 7,
+        "opset_imports": {
+          "": 13
+        },
+        "total_nodes": 141,
+        "op_counts": {
+          "Conv": 52,
+          "HardSigmoid": 28,
+          "Mul": 28,
+          "Relu": 14,
+          "GlobalAveragePool": 10,
+          "Add": 6,
+          "Gemm": 2,
+          "Flatten": 1
+        },
+        "initializer_count": 108,
+        "input_info": [
+          {
+            "name": "input_image",
+            "shape": [
+              "1",
+              "3",
+              "224",
+              "224"
+            ],
+            "dtype": 1
+          }
+        ],
+        "output_info": [
+          {
+            "name": "output_tensor",
+            "shape": [
+              "1",
+              "1000"
+            ],
+            "dtype": 1
+          }
+        ],
+        "special_nodes": {},
+        "constant_nodes_count": 0
+      }
+    },
+    "diffs": {
+      "shape_inferred": {
+        "file_size_mb": {
+          "original": 9.714,
+          "shape_inferred": 9.7253,
+          "diff_mb": 0.0113,
+          "diff_pct": 0.12
+        }
+      },
+      "opset13": {
+        "ir_version": {
+          "original": 6,
+          "opset13": 7
+        },
+        "opset_diffs": {
+          "": {
+            "original": 11,
+            "opset13": 13
+          }
+        }
+      },
+      "bn_folded": {
+        "file_size_mb": {
+          "original": 9.714,
+          "bn_folded": 9.7159,
+          "diff_mb": 0.0019,
+          "diff_pct": 0.02
+        }
+      },
+      "channels_last": {},
+      "fp16": {
+        "file_size_mb": {
+          "original": 9.714,
+          "fp16": 4.8754,
+          "diff_mb": -4.8386,
+          "diff_pct": -49.81
+        }
+      },
+      "onnxsim": {
+        "file_size_mb": {
+          "original": 9.714,
+          "onnxsim": 9.7253,
+          "diff_mb": 0.0113,
+          "diff_pct": 0.12
+        },
+        "ir_version": {
+          "original": 6,
+          "onnxsim": 7
+        },
+        "opset_diffs": {
+          "": {
+            "original": 11,
+            "onnxsim": 13
+          }
+        }
+      },
+      "onnxoptimizer": {
+        "ir_version": {
+          "original": 6,
+          "onnxoptimizer": 7
+        },
+        "opset_diffs": {
+          "": {
+            "original": 11,
+            "onnxoptimizer": 13
+          }
+        }
+      }
+    }
+  },
+  "resnet50": {
+    "original": {
+      "path": "/home/HwHiAiUser/Desktop/CNN/ResNet/resnet50.onnx",
+      "file_size_mb": 97.4144,
+      "ir_version": 6,
+      "opset_imports": {
+        "": 11
+      },
+      "total_nodes": 122,
+      "op_counts": {
+        "Conv": 53,
+        "Relu": 49,
+        "Add": 16,
+        "MaxPool": 1,
+        "GlobalAveragePool": 1,
+        "Flatten": 1,
+        "Gemm": 1
+      },
+      "initializer_count": 108,
+      "input_info": [
+        {
+          "name": "input_image",
+          "shape": [
+            "1",
+            "3",
+            "224",
+            "224"
+          ],
+          "dtype": 1
+        }
+      ],
+      "output_info": [
+        {
+          "name": "output_tensor",
+          "shape": [
+            "1",
+            "1000"
+          ],
+          "dtype": 1
+        }
+      ],
+      "special_nodes": {},
+      "constant_nodes_count": 0
+    },
+    "variants": {
+      "shape_inferred": {
+        "path": "/home/HwHiAiUser/Desktop/CNN/Optimization/models/resnet50_shape_inferred.onnx",
+        "file_size_mb": 97.4218,
+        "ir_version": 6,
+        "opset_imports": {
+          "": 11
+        },
+        "total_nodes": 122,
+        "op_counts": {
+          "Conv": 53,
+          "Relu": 49,
+          "Add": 16,
+          "MaxPool": 1,
+          "GlobalAveragePool": 1,
+          "Flatten": 1,
+          "Gemm": 1
+        },
+        "initializer_count": 108,
+        "input_info": [
+          {
+            "name": "input_image",
+            "shape": [
+              "1",
+              "3",
+              "224",
+              "224"
+            ],
+            "dtype": 1
+          }
+        ],
+        "output_info": [
+          {
+            "name": "output_tensor",
+            "shape": [
+              "1",
+              "1000"
+            ],
+            "dtype": 1
+          }
+        ],
+        "special_nodes": {},
+        "constant_nodes_count": 0
+      },
+      "opset13": {
+        "path": "/home/HwHiAiUser/Desktop/CNN/Optimization/models/resnet50_opset13.onnx",
+        "file_size_mb": 97.4144,
+        "ir_version": 7,
+        "opset_imports": {
+          "": 13
+        },
+        "total_nodes": 122,
+        "op_counts": {
+          "Conv": 53,
+          "Relu": 49,
+          "Add": 16,
+          "MaxPool": 1,
+          "GlobalAveragePool": 1,
+          "Flatten": 1,
+          "Gemm": 1
+        },
+        "initializer_count": 108,
+        "input_info": [
+          {
+            "name": "input_image",
+            "shape": [
+              "1",
+              "3",
+              "224",
+              "224"
+            ],
+            "dtype": 1
+          }
+        ],
+        "output_info": [
+          {
+            "name": "output_tensor",
+            "shape": [
+              "1",
+              "1000"
+            ],
+            "dtype": 1
+          }
+        ],
+        "special_nodes": {},
+        "constant_nodes_count": 0
+      },
+      "bn_folded": {
+        "path": "/home/HwHiAiUser/Desktop/CNN/Optimization/models/resnet50_bn_folded.onnx",
+        "file_size_mb": 97.413,
+        "ir_version": 6,
+        "opset_imports": {
+          "": 11
+        },
+        "total_nodes": 90,
+        "op_counts": {
+          "Conv": 53,
+          "Relu": 17,
+          "Add": 16,
+          "MaxPool": 1,
+          "GlobalAveragePool": 1,
+          "Flatten": 1,
+          "Gemm": 1
+        },
+        "initializer_count": 108,
+        "input_info": [
+          {
+            "name": "input_image",
+            "shape": [
+              "1",
+              "3",
+              "224",
+              "224"
+            ],
+            "dtype": 1
+          }
+        ],
+        "output_info": [
+          {
+            "name": "output_tensor",
+            "shape": [
+              "1",
+              "1000"
+            ],
+            "dtype": 1
+          }
+        ],
+        "special_nodes": {},
+        "constant_nodes_count": 0
+      },
+      "channels_last": {
+        "path": "/home/HwHiAiUser/Desktop/CNN/Optimization/models/resnet50_channels_last.onnx",
+        "file_size_mb": 97.4144,
+        "ir_version": 6,
+        "opset_imports": {
+          "": 11
+        },
+        "total_nodes": 122,
+        "op_counts": {
+          "Conv": 53,
+          "Relu": 49,
+          "Add": 16,
+          "MaxPool": 1,
+          "GlobalAveragePool": 1,
+          "Flatten": 1,
+          "Gemm": 1
+        },
+        "initializer_count": 108,
+        "input_info": [
+          {
+            "name": "input_image",
+            "shape": [
+              "1",
+              "3",
+              "224",
+              "224"
+            ],
+            "dtype": 1
+          }
+        ],
+        "output_info": [
+          {
+            "name": "output_tensor",
+            "shape": [
+              "1",
+              "1000"
+            ],
+            "dtype": 1
+          }
+        ],
+        "special_nodes": {},
+        "constant_nodes_count": 0
+      },
+      "fp16": {
+        "path": "/home/HwHiAiUser/Desktop/CNN/Optimization/models/resnet50_fp16.onnx",
+        "file_size_mb": 48.7189,
+        "ir_version": 6,
+        "opset_imports": {
+          "": 11
+        },
+        "total_nodes": 122,
+        "op_counts": {
+          "Conv": 53,
+          "Relu": 49,
+          "Add": 16,
+          "MaxPool": 1,
+          "GlobalAveragePool": 1,
+          "Flatten": 1,
+          "Gemm": 1
+        },
+        "initializer_count": 108,
+        "input_info": [
+          {
+            "name": "input_image",
+            "shape": [
+              "1",
+              "3",
+              "224",
+              "224"
+            ],
+            "dtype": 10
+          }
+        ],
+        "output_info": [
+          {
+            "name": "output_tensor",
+            "shape": [
+              "1",
+              "1000"
+            ],
+            "dtype": 10
+          }
+        ],
+        "special_nodes": {},
+        "constant_nodes_count": 0
+      },
+      "onnxsim": {
+        "path": "/home/HwHiAiUser/Desktop/CNN/Optimization/models/resnet50_onnxsim.onnx",
+        "file_size_mb": 97.4218,
+        "ir_version": 7,
+        "opset_imports": {
+          "": 13
+        },
+        "total_nodes": 122,
+        "op_counts": {
+          "Conv": 53,
+          "Relu": 49,
+          "Add": 16,
+          "MaxPool": 1,
+          "GlobalAveragePool": 1,
+          "Flatten": 1,
+          "Gemm": 1
+        },
+        "initializer_count": 108,
+        "input_info": [
+          {
+            "name": "input_image",
+            "shape": [
+              "1",
+              "3",
+              "224",
+              "224"
+            ],
+            "dtype": 1
+          }
+        ],
+        "output_info": [
+          {
+            "name": "output_tensor",
+            "shape": [
+              "1",
+              "1000"
+            ],
+            "dtype": 1
+          }
+        ],
+        "special_nodes": {},
+        "constant_nodes_count": 0
+      },
+      "onnxoptimizer": {
+        "path": "/home/HwHiAiUser/Desktop/CNN/Optimization/models/resnet50_onnxoptimizer.onnx",
+        "file_size_mb": 97.4144,
+        "ir_version": 7,
+        "opset_imports": {
+          "": 13
+        },
+        "total_nodes": 122,
+        "op_counts": {
+          "Conv": 53,
+          "Relu": 49,
+          "Add": 16,
+          "MaxPool": 1,
+          "GlobalAveragePool": 1,
+          "Flatten": 1,
+          "Gemm": 1
+        },
+        "initializer_count": 108,
+        "input_info": [
+          {
+            "name": "input_image",
+            "shape": [
+              "1",
+              "3",
+              "224",
+              "224"
+            ],
+            "dtype": 1
+          }
+        ],
+        "output_info": [
+          {
+            "name": "output_tensor",
+            "shape": [
+              "1",
+              "1000"
+            ],
+            "dtype": 1
+          }
+        ],
+        "special_nodes": {},
+        "constant_nodes_count": 0
+      }
+    },
+    "diffs": {
+      "shape_inferred": {
+        "file_size_mb": {
+          "original": 97.4144,
+          "shape_inferred": 97.4218,
+          "diff_mb": 0.0074,
+          "diff_pct": 0.01
+        }
+      },
+      "opset13": {
+        "ir_version": {
+          "original": 6,
+          "opset13": 7
+        },
+        "opset_diffs": {
+          "": {
+            "original": 11,
+            "opset13": 13
+          }
+        }
+      },
+      "bn_folded": {
+        "file_size_mb": {
+          "original": 97.4144,
+          "bn_folded": 97.413,
+          "diff_mb": -0.0014,
+          "diff_pct": -0.0
+        },
+        "total_nodes": {
+          "original": 122,
+          "bn_folded": 90,
+          "diff": -32
+        },
+        "op_count_diffs": {
+          "Relu": {
+            "original": 49,
+            "bn_folded": 17,
+            "diff": -32
+          }
+        }
+      },
+      "channels_last": {},
+      "fp16": {
+        "file_size_mb": {
+          "original": 97.4144,
+          "fp16": 48.7189,
+          "diff_mb": -48.6955,
+          "diff_pct": -49.99
+        }
+      },
+      "onnxsim": {
+        "file_size_mb": {
+          "original": 97.4144,
+          "onnxsim": 97.4218,
+          "diff_mb": 0.0074,
+          "diff_pct": 0.01
+        },
+        "ir_version": {
+          "original": 6,
+          "onnxsim": 7
+        },
+        "opset_diffs": {
+          "": {
+            "original": 11,
+            "onnxsim": 13
+          }
+        }
+      },
+      "onnxoptimizer": {
+        "ir_version": {
+          "original": 6,
+          "onnxoptimizer": 7
+        },
+        "opset_diffs": {
+          "": {
+            "original": 11,
+            "onnxoptimizer": 13
+          }
+        }
+      }
+    }
+  }
+}
