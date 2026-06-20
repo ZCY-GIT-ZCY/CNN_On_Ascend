@@ -88,22 +88,127 @@
 
 ---
 
-## 4. ATC 参数调优（MobileNet 补充实验）
+## 4. ATC 编译参数探索
 
-| 变体 | ATC 参数 | Mean(ms) | vs 同批基线 | CV | OM大小 |
+### 4.1 参数空间概览
+
+ATC 编译器的关键参数可分为三类：
+
+**精度控制** (`--precision_mode`)：
+
+| 参数值 | 含义 | 测试状态 |
+|---|---|---|
+| `allow_mix_precision` | 混合精度，ATC自动选择fp16/fp32 | ✅ 默认基线 |
+| `force_fp16` | 强制所有算子使用fp16 | ✅ 已测 |
+| `cube_fp16in_fp32out` | Cube单元用fp16计算，输出保留fp32 | ❌ 未测（精度与速度的折中方案） |
+| `force_fp32` | 全部保留fp32 | ❌ 未测（对照用） |
+| `allow_fp32_to_fp16` | 自动将fp32转为fp16 | ❌ 未测 |
+
+**缓存优化** (`--buffer_optimize`)：
+
+| 参数值 | 含义 | 测试状态 |
+|---|---|---|
+| `l2_optimize` | 优先使用 L2 Cache（~1MB, ~200GB/s） | ✅ 默认基线 |
+| `l1_optimize` | 优先使用 L1 Cache（~256KB, ~2TB/s） | ✅ 已测（MobileNet） |
+| `off_optimize` | 关闭 buffer 优化 | ❌ 未测（对照用） |
+
+**算子选择** (`--op_select_implmode`)：
+
+| 参数值 | 含义 | 测试状态 |
+|---|---|---|
+| `high_performance` | 优先速度 | ✅ 全程使用（默认） |
+| `high_precision` | 优先精度 | ❌ 未测 |
+
+理论组合共 `3×3×2 = 18` 种，本阶段测试了其中 **4 种**（在 MobileNet 上），**0 种**（在 ResNet50 上）。
+
+### 4.2 测试的组合
+
+所有测试共用以下公共 ATC 参数：
+```
+--framework=5                    # ONNX 框架
+--soc_version=Ascend310B1        # 目标芯片
+--input_format=NCHW
+--input_shape=input_image:1,3,224,224
+--op_select_implmode=high_performance
+--enable_small_channel=1
+--insert_op_conf=<model_dir>/aipp.cfg
+```
+
+变体间仅 `--precision_mode`、`--buffer_optimize` 和输入 ONNX 不同。
+
+#### 组合1：基线（reexport_plain）
+```
+atc --model=MobileNet/mobilenetv3.onnx  \
+    --output=Optimization/models/mobilenet_v3_small_reexport_plain \
+    --precision_mode=allow_mix_precision \
+    --buffer_optimize=l2_optimize
+```
+
+#### 组合2：fp16 ONNX + 默认 ATC（fp16_variant）
+```
+atc --model=Optimization/models/mobilenet_v3_small_fp16.onnx  \
+    --output=Optimization/models/mobilenet_v3_small_fp16 \
+    --precision_mode=allow_mix_precision \
+    --buffer_optimize=l2_optimize
+```
+**说明**：这里的 `fp16.onnx` 是 PyTorch 导出时权重已转为 fp16 的 ONNX 文件（文件大小 4.88MB vs 原始 9.71MB）。ATC 参数保持默认。
+
+#### 组合3：force_fp16（原始ONNX + 全图fp16）
+```
+atc --model=MobileNet/mobilenetv3.onnx  \
+    --output=Optimization/models/mobilenet_v3_small_atc_fp16 \
+    --precision_mode=force_fp16 \
+    --buffer_optimize=l2_optimize
+```
+**说明**：与组合2的区别在于——这里是 ATC 在编译时自动将所有权重和计算转为 fp16，而非使用预转换的 fp16 ONNX。
+
+#### 组合4：l1_optimize（原始ONNX + L1缓存优先）
+```
+atc --model=MobileNet/mobilenetv3.onnx  \
+    --output=Optimization/models/mobilenet_v3_small_atc_l1 \
+    --precision_mode=allow_mix_precision \
+    --buffer_optimize=l1_optimize
+```
+**说明**：尝试更激进地使用片上 L1 Cache（256KB, ~2TB/s）而非 L2（1MB, ~200GB/s）。
+
+### 4.3 测试结果（MobileNetV3-Small）
+
+每组 5 轮（5×180 iterations），随机顺序，独立子进程。
+
+| 组合 | Mean(ms) | vs 同批基线 | CV | OM大小 | 与原始AIPP OM的大小差 |
 |---|---|---|---|---|---|
-| reexport_plain | allow_mix_precision + l2_optimize | 1.1381 | — | 8.5% | 7.77MB |
-| **fp16_variant** | **fp16 ONNX + allow_mix_precision** | **0.9958** | **-12.50%** | **2.5%** | **7.66MB** |
-| force_fp16 | 原始ONNX + force_fp16 + l2_optimize | 1.0406 | -8.57% | 11.8% | 7.66MB |
-| l1_optimize | 原始ONNX + allow_mix_precision + l1_optimize | 1.1240 | -1.24% | 6.4% | 7.77MB |
+| reexport_plain | 1.1381 | — | 8.5% | 7,771,653 | -111,094 |
+| **fp16_variant** | **0.9958** | **-12.50%** | **2.5%** | **7,660,272** | **+287** |
+| force_fp16 | 1.0406 | -8.57% | 11.8% | 7,660,786 | -227 |
+| l1_optimize | 1.1240 | -1.24% | 6.4% | 7,771,548 | -110,989 |
 
-**注**: 该实验在不同时间段运行（系统负载不同），baseline (1.1381ms) 与 Phase 2 baseline (1.1273ms) 差异约 1%，属正常范围。
+**关键观察**：
+- `fp16_variant` 和 `force_fp16` 的 OM 大小（~7.66MB）与原始 AIPP OM（7,660,559 bytes）几乎一致（差异 <300 bytes），而 `reexport_plain` 和 `l1_optimize` 的 OM（~7.77MB）则大 111KB
+- 这提示**原始 AIPP OM 本身就是混合精度/准fp16模式编译的**，而非全精度
+- `fp16_variant` 的 CV=2.5% 是所有组合中最低的（最稳定），而 `force_fp16` 的 CV=11.8%（最不稳定）
+- `l1_optimize` 的 -1.24% 在噪声基底（1.18%）范围内，不视为有效
 
----
+### 4.4 未测试组合及原因
 
-## 5. ATC 参数调优（ResNet50 补充实验，待补）
+| 未测试组合 | 预期收益 | 风险 | 未测原因 |
+|---|---|---|---|
+| `cube_fp16in_fp32out + l2_optimize` | 1-3% | 低（精度更安全） | 时间不足，但值得做 |
+| `fp16 ONNX + l1_optimize` | 可能与fp16叠加 | 低 | 时间不足 |
+| `force_fp16 + l1_optimize` | 可能与force_fp16叠加 | 中（组合效果未知） | 时间不足 |
+| `off_optimize` | 0%（对照） | 低 | 优先级低 |
+| `high_precision` | 0%（精度优先） | 低（会变慢） | 优先级低 |
 
-基于 MobileNet 结果，如果 `--precision_mode=force_fp16` 在新编译的 baseline 上可达 -8.6%，预期 ResNet50 上的效果可能在 -1~-3% 范围。
+**最有价值的未测试组合**是 `cube_fp16in_fp32out`——它在 Cube 单元使用 fp16 计算（保持吞吐量），但输出结果保留 fp32（避免精度损失），可能是精度与速度的最佳平衡点。
+
+### 4.5 ResNet50 的 ATC 参数探索状态
+
+ResNet50 上未做 ATC 参数调优实验。基于 MobileNet 结果的外推预期：
+
+| 参数 | MobileNet效果 | ResNet50预期 | 置信度 |
+|---|---|---|---|
+| fp16_variant | -12.50% | -1~-3% | 中（基于fp16的Phase2结果外推） |
+| force_fp16 | -8.57% | -0.5~-1.5% | 低 |
+| l1_optimize | -1.24% | 0~-0.5% | 低 |
 
 ---
 
@@ -138,18 +243,6 @@
 | ResNet50 | 其他 | 同MobileNet | 同MobileNet |
 
 **核心发现**: 所有变体中，只有 fp16 改变了可能影响性能的 ONNX 属性（权重精度）。其他变体的 ONNX 图拓扑未变，理论上不应产生性能差异。观察到的 2-4% 差异应在噪声范围内。
-
-### 6.3 ATC 参数调优 — OM 大小一致性
-
-| OM | 大小 | vs 原始AIPP OM | vs reexport_plain |
-|---|---|---|---|
-| 原始 AIPP OM | **7,660,559 bytes** | — | -111,094 bytes |
-| reexport_plain | 7,771,653 bytes | +111,094 | — |
-| fp16_variant | **7,660,272 bytes** | **-287** | -111,381 |
-| force_fp16 | **7,660,786 bytes** | **+227** | -110,867 |
-| l1_optimize | 7,771,548 bytes | +110,989 | -105 |
-
-fp16_variant 和 force_fp16 的 OM 大小与原始 AIPP OM 几乎一致（差异 <300 bytes），而全精度编译产物（reexport_plain, l1_optimize）则大 111KB。这强烈提示原始 AIPP OM 是在混合精度模式下编译的。
 
 ---
 
